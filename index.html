@@ -2,126 +2,61 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#070a10">
-<title>TRUEFREE GT2 — Discovery Lab</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#07090d">
+<title>TRUEFREE Watch GT2 — Discovery Lab</title>
 
 <style>
 :root{
-    --bg:#070a10;
-    --panel:#101621;
-    --panel2:#0c111a;
-    --border:#263247;
-    --border2:#33425a;
-    --text:#edf4ff;
-    --muted:#8d9bb0;
-    --blue:#4da3ff;
-    --green:#43df91;
-    --yellow:#ffd166;
-    --red:#ff6478;
-    --purple:#a98cff;
+    --bg:#07090d;
+    --panel:#0e1219;
+    --panel2:#121821;
+    --border:#202936;
+    --text:#edf2f7;
+    --muted:#8d99a8;
+    --accent:#55a8ff;
+    --accent2:#6ee7b7;
+    --warning:#f5c451;
+    --danger:#ff6b6b;
+    --shadow:0 16px 45px rgba(0,0,0,.35);
 }
 
-*{
-    box-sizing:border-box;
-}
+*{box-sizing:border-box}
 
 html,body{
     margin:0;
     min-height:100%;
     background:
-        radial-gradient(circle at 10% 0%,rgba(55,130,255,.15),transparent 30%),
-        radial-gradient(circle at 90% 10%,rgba(90,70,255,.10),transparent 28%),
+        radial-gradient(circle at 15% 10%,rgba(65,130,255,.12),transparent 30%),
+        radial-gradient(circle at 85% 15%,rgba(0,220,170,.08),transparent 28%),
         var(--bg);
     color:var(--text);
     font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
 }
 
 body{
-    padding:22px;
+    padding:24px;
 }
 
-button,
-input{
+button,input{
     font:inherit;
 }
 
 button{
-    appearance:none;
-    -webkit-appearance:none;
-    border:1px solid var(--border2);
-    background:#192231;
-    color:var(--text);
-    border-radius:11px;
-    padding:10px 14px;
-    cursor:pointer;
-    user-select:none;
-    -webkit-user-select:none;
-    transition:
-        background .15s ease,
-        border-color .15s ease,
-        transform .15s ease,
-        opacity .15s ease;
-}
-
-button:hover{
-    background:#253247;
-    border-color:#466080;
-    transform:translateY(-1px);
-}
-
-button:active{
-    transform:translateY(0);
-}
-
-button.primary{
-    background:linear-gradient(135deg,#267fe1,#4da7ff);
-    border-color:#5eb1ff;
-    color:white;
-}
-
-button.danger{
-    background:#29151b;
-    border-color:#5a2732;
-}
-
-button.small{
-    padding:8px 10px;
-    font-size:12px;
-}
-
-button:disabled{
-    opacity:.45;
-    cursor:not-allowed;
-    transform:none;
-}
-
-input{
-    width:100%;
-    background:#080c12;
-    color:var(--text);
-    border:1px solid var(--border2);
-    border-radius:10px;
-    padding:11px 12px;
-    outline:none;
-}
-
-input:focus{
-    border-color:var(--blue);
-    box-shadow:0 0 0 3px rgba(77,163,255,.12);
+    border:0;
 }
 
 .app{
-    max-width:1300px;
-    margin:0 auto;
+    max-width:1250px;
+    margin:auto;
 }
 
-header{
+.header{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    gap:18px;
-    margin-bottom:20px;
+    gap:20px;
+    margin-bottom:22px;
 }
 
 .brand{
@@ -130,1119 +65,926 @@ header{
     gap:14px;
 }
 
-.watchIcon{
-    width:54px;
-    height:54px;
-    border-radius:16px;
+.logo{
+    width:52px;
+    height:52px;
+    border-radius:15px;
     display:grid;
     place-items:center;
-    background:linear-gradient(145deg,#1b2739,#0b1018);
-    border:1px solid #34445c;
-    font-size:27px;
-    box-shadow:0 15px 40px rgba(0,0,0,.25);
+    font-size:25px;
+    background:linear-gradient(135deg,#182638,#0c1119);
+    border:1px solid #2a394d;
+    box-shadow:var(--shadow);
 }
 
 h1{
     margin:0;
     font-size:25px;
+    letter-spacing:-.5px;
 }
 
 .subtitle{
     color:var(--muted);
-    font-size:13px;
     margin-top:4px;
+    font-size:13px;
 }
 
-.statusPill{
+.status-pill{
     display:flex;
     align-items:center;
     gap:8px;
     padding:9px 13px;
-    border-radius:999px;
-    background:#0d121a;
     border:1px solid var(--border);
+    border-radius:999px;
+    background:rgba(255,255,255,.025);
     color:var(--muted);
-    font-size:12px;
-    white-space:nowrap;
+    font-size:13px;
 }
 
 .dot{
-    width:8px;
-    height:8px;
+    width:9px;
+    height:9px;
     border-radius:50%;
-    background:#667386;
+    background:#687384;
 }
 
-.dot.green{
-    background:var(--green);
-    box-shadow:0 0 13px rgba(67,223,145,.65);
+.dot.connected{
+    background:var(--accent2);
+    box-shadow:0 0 12px rgba(110,231,183,.65);
 }
 
-.dot.yellow{
-    background:var(--yellow);
-    box-shadow:0 0 13px rgba(255,209,102,.5);
-}
-
-.dot.red{
-    background:var(--red);
-    box-shadow:0 0 13px rgba(255,100,120,.5);
-}
-
-.grid{
+.hero{
     display:grid;
-    grid-template-columns:repeat(2,minmax(0,1fr));
-    gap:17px;
+    grid-template-columns:1.4fr .6fr;
+    gap:18px;
+    margin-bottom:18px;
 }
 
-.full{
-    grid-column:1/-1;
-}
-
-.card{
-    background:linear-gradient(145deg,rgba(17,23,34,.98),rgba(9,13,20,.98));
+.panel{
+    background:linear-gradient(180deg,rgba(18,24,33,.96),rgba(10,14,20,.96));
     border:1px solid var(--border);
-    border-radius:18px;
-    padding:19px;
-    box-shadow:0 18px 55px rgba(0,0,0,.22);
+    border-radius:20px;
+    box-shadow:var(--shadow);
+    overflow:hidden;
 }
 
-.cardTitle{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:12px;
+.panel-inner{
+    padding:20px;
+}
+
+.panel-title{
+    font-size:14px;
+    font-weight:700;
     margin-bottom:15px;
 }
 
-.cardTitle h2{
-    margin:0;
-    font-size:16px;
-}
-
-.cardTitle span{
-    color:var(--muted);
-    font-size:11px;
-}
-
-.buttonRow{
+.device-card{
     display:flex;
-    flex-wrap:wrap;
-    gap:9px;
+    gap:18px;
+    align-items:center;
 }
 
-.infoGrid{
+.watch-icon{
+    width:90px;
+    height:120px;
+    flex:none;
+    border-radius:27px;
+    background:
+        linear-gradient(145deg,#1e2734,#05070a);
+    border:5px solid #202936;
+    box-shadow:
+        inset 0 0 0 2px #080a0e,
+        0 15px 35px rgba(0,0,0,.45);
     display:grid;
-    grid-template-columns:repeat(2,minmax(0,1fr));
+    place-items:center;
+}
+
+.watch-screen{
+    width:60px;
+    height:74px;
+    border-radius:13px;
+    background:
+        radial-gradient(circle at 50% 30%,#18374c,#071018 65%);
+    border:1px solid #294357;
+    display:grid;
+    place-items:center;
+    font-size:10px;
+    color:#7dd3fc;
+    text-align:center;
+}
+
+.device-name{
+    font-size:21px;
+    font-weight:750;
+}
+
+.device-address{
+    color:var(--muted);
+    margin-top:5px;
+    font-family:ui-monospace,monospace;
+    font-size:12px;
+}
+
+.meta-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:10px;
+    margin-top:17px;
+}
+
+.meta{
+    padding:11px 12px;
+    border-radius:12px;
+    background:#0a0f15;
+    border:1px solid #1a232e;
+}
+
+.meta-label{
+    font-size:10px;
+    color:var(--muted);
+    text-transform:uppercase;
+    letter-spacing:.7px;
+}
+
+.meta-value{
+    margin-top:4px;
+    font-size:13px;
+    word-break:break-word;
+}
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
     gap:10px;
 }
 
-.info{
-    background:rgba(255,255,255,.025);
-    border:1px solid #202b3b;
-    border-radius:12px;
-    padding:12px;
-    min-width:0;
+.stat{
+    padding:15px;
+    border-radius:14px;
+    background:#0a0f15;
+    border:1px solid #1a232e;
 }
 
-.infoLabel{
+.stat-number{
+    font-size:26px;
+    font-weight:750;
+}
+
+.stat-label{
     color:var(--muted);
-    font-size:10px;
-    text-transform:uppercase;
-    letter-spacing:.8px;
-    margin-bottom:5px;
+    font-size:11px;
+    margin-top:2px;
 }
 
-.infoValue{
-    font-family:ui-monospace,SFMono-Regular,Consolas,monospace;
-    font-size:12px;
-    overflow-wrap:anywhere;
-}
-
-.metric{
+.actions{
     display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:15px;
-    padding:10px 0;
-    border-bottom:1px solid #1d2634;
+    flex-wrap:wrap;
+    gap:9px;
+    margin-top:17px;
 }
 
-.metric:last-child{
-    border-bottom:0;
+.btn{
+    padding:11px 15px;
+    border-radius:11px;
+    cursor:pointer;
+    color:#eef5ff;
+    background:#151d28;
+    border:1px solid #293544;
+    transition:.16s ease;
 }
 
-.metricLabel{
-    color:var(--muted);
-    font-size:12px;
+.btn:hover{
+    transform:translateY(-1px);
+    background:#1a2532;
+    border-color:#3a4c61;
 }
 
-.metricValue{
-    text-align:right;
-    font-family:ui-monospace,SFMono-Regular,Consolas,monospace;
-    font-size:12px;
-    overflow-wrap:anywhere;
+.btn:active{
+    transform:translateY(0);
 }
 
-.greenText{
-    color:var(--green);
+.btn.primary{
+    background:linear-gradient(135deg,#2178d1,#1558a3);
+    border-color:#328be8;
 }
 
-.yellowText{
-    color:var(--yellow);
+.btn.success{
+    background:linear-gradient(135deg,#17785e,#125542);
+    border-color:#25896e;
 }
 
-.redText{
-    color:var(--red);
+.btn.warning{
+    background:linear-gradient(135deg,#765d17,#59470f);
+    border-color:#9c7c22;
 }
 
-.blueText{
-    color:var(--blue);
+.btn.danger{
+    background:#32181d;
+    border-color:#5b252d;
+    color:#ffb1b1;
 }
 
-.notice{
-    margin-top:12px;
-    border:1px solid #263448;
-    background:#101721;
-    border-radius:12px;
-    padding:12px 13px;
-    color:#aebcd0;
-    font-size:12px;
-    line-height:1.55;
+.btn:disabled{
+    opacity:.45;
+    cursor:not-allowed;
+    transform:none;
 }
 
-.notice.good{
-    border-color:#1e513a;
-    background:#0c1913;
-}
-
-.notice.warning{
-    border-color:#5a491e;
-    background:#18150d;
-}
-
-.notice.error{
-    border-color:#5d2632;
-    background:#1b0e12;
-}
-
-.notice strong{
-    color:#eef4ff;
-}
-
-.inputRow{
-    display:flex;
-    gap:8px;
-}
-
-.inputRow input{
-    flex:1;
-}
-
-.tag{
-    display:inline-flex;
-    align-items:center;
-    padding:4px 7px;
-    border-radius:6px;
-    background:#182234;
-    border:1px solid #29384d;
-    color:#9db0c9;
-    font-size:10px;
+.section-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+    margin-bottom:18px;
 }
 
 .service{
-    border:1px solid #28364b;
-    background:#0a0f17;
-    border-radius:14px;
-    padding:14px;
-    margin-bottom:11px;
+    border:1px solid var(--border);
+    background:#0a0f15;
+    border-radius:15px;
+    overflow:hidden;
+    margin-bottom:12px;
 }
 
-.serviceHeader{
+.service:last-child{
+    margin-bottom:0;
+}
+
+.service-head{
+    padding:14px;
     display:flex;
     justify-content:space-between;
-    align-items:flex-start;
-    gap:15px;
-    margin-bottom:10px;
+    gap:10px;
+    cursor:pointer;
 }
 
-.serviceName{
+.service-left{
+    min-width:0;
+}
+
+.service-name{
     font-weight:700;
-    font-size:13px;
+    font-size:14px;
+}
+
+.uuid{
+    margin-top:5px;
+    color:#91a0b1;
+    font:11px ui-monospace,SFMono-Regular,Menlo,monospace;
     word-break:break-all;
 }
 
-.serviceUuid{
-    color:var(--muted);
-    font-family:ui-monospace,SFMono-Regular,Consolas,monospace;
+.badge{
+    flex:none;
+    height:max-content;
+    padding:4px 8px;
+    border-radius:999px;
     font-size:10px;
-    margin-top:4px;
-    word-break:break-all;
+    border:1px solid #293746;
+    color:#aebaca;
+}
+
+.badge.custom{
+    color:#79c4ff;
+    border-color:#265b88;
+    background:#0b2032;
+}
+
+.badge.standard{
+    color:#9fa9b5;
+}
+
+.service-body{
+    border-top:1px solid #18212b;
+    padding:13px;
+    display:none;
+}
+
+.service.open .service-body{
+    display:block;
 }
 
 .characteristic{
-    border:1px solid #202c3d;
-    background:#101721;
-    border-radius:11px;
-    padding:12px;
-    margin-top:8px;
+    padding:13px;
+    border:1px solid #1b2631;
+    border-radius:13px;
+    background:#0c1219;
+    margin-bottom:10px;
 }
 
-.charHeader{
+.characteristic:last-child{
+    margin-bottom:0;
+}
+
+.char-top{
     display:flex;
     justify-content:space-between;
-    align-items:flex-start;
-    gap:12px;
+    gap:10px;
 }
 
-.charUuid{
-    font-family:ui-monospace,SFMono-Regular,Consolas,monospace;
-    font-size:11px;
-    word-break:break-all;
+.char-title{
+    font-size:13px;
+    font-weight:700;
 }
 
 .properties{
     display:flex;
     flex-wrap:wrap;
-    justify-content:flex-end;
     gap:5px;
+    margin-top:8px;
 }
 
-.property{
-    padding:3px 6px;
-    border-radius:5px;
-    background:#172235;
-    color:#9fb3ce;
-    border:1px solid #27364b;
+.prop{
     font-size:9px;
+    padding:4px 6px;
+    border-radius:6px;
+    background:#141d27;
+    color:#aeb9c6;
+    border:1px solid #24303c;
 }
 
-.property.read{
-    color:#71d5ff;
+.prop.read{
+    color:#7dd3fc;
+    border-color:#255a75;
 }
 
-.property.write,
-.property.writeNR{
-    color:#ffd166;
+.prop.notify,.prop.indicate{
+    color:#7ee7bb;
+    border-color:#23604c;
 }
 
-.property.notify,
-.property.indicate{
-    color:#70e7a5;
+.prop.write,.prop.wwr{
+    color:#f6c96b;
+    border-color:#69531e;
 }
 
-.charData{
-    margin-top:9px;
-    padding-top:9px;
-    border-top:1px solid #1f2938;
+.readout{
+    margin-top:10px;
+    padding:10px;
+    border-radius:9px;
+    background:#060a0f;
+    border:1px solid #17212b;
 }
 
-.dataLabel{
-    color:#78879c;
+.readout-label{
     font-size:9px;
+    color:var(--muted);
     text-transform:uppercase;
-    letter-spacing:.7px;
-    margin-bottom:3px;
 }
 
-.dataValue{
-    font-family:ui-monospace,SFMono-Regular,Consolas,monospace;
-    font-size:10px;
-    color:#c4d0e0;
-    white-space:pre-wrap;
+.hex{
+    margin-top:5px;
+    font:11px ui-monospace,SFMono-Regular,Menlo,monospace;
+    line-height:1.55;
+    word-break:break-all;
+    color:#dce7f2;
+}
+
+.ascii{
+    margin-top:4px;
+    font:11px ui-monospace,SFMono-Regular,Menlo,monospace;
+    color:#8dd9b8;
     word-break:break-all;
 }
 
-.descriptor{
-    margin-top:7px;
-    padding:8px;
-    background:#0a0f16;
-    border:1px solid #1d2837;
+.char-actions{
+    display:flex;
+    gap:7px;
+    margin-top:10px;
+}
+
+.small-btn{
+    padding:7px 9px;
+    font-size:11px;
     border-radius:8px;
+    cursor:pointer;
+    background:#151d27;
+    color:#dce5ee;
+    border:1px solid #283541;
 }
 
-.descriptorUuid{
-    font-family:ui-monospace,SFMono-Regular,Consolas,monospace;
+.small-btn:hover{
+    background:#1c2732;
+}
+
+.read-only{
+    color:#7ee7bb;
     font-size:10px;
+    margin-top:7px;
 }
 
-.empty{
-    text-align:center;
-    color:#718096;
-    padding:25px 10px;
+.notice{
+    padding:14px;
+    border-radius:13px;
+    border:1px solid #493d20;
+    background:#18150b;
+    color:#e7d39a;
     font-size:12px;
+    line-height:1.55;
+    margin-bottom:15px;
+}
+
+.notice strong{
+    color:#fff1bd;
 }
 
 .log{
-    background:#05080c;
-    border:1px solid #202a37;
-    border-radius:12px;
-    padding:12px;
-    height:280px;
+    max-height:380px;
     overflow:auto;
-    font-family:ui-monospace,SFMono-Regular,Consolas,monospace;
-    font-size:11px;
-    line-height:1.65;
+    padding:10px;
+    background:#06090d;
+    border-radius:13px;
+    border:1px solid #17202a;
 }
 
-.logLine{
-    color:#aab7ca;
+.log-row{
+    padding:9px 8px;
+    border-bottom:1px solid #121a22;
+    font:11px ui-monospace,SFMono-Regular,Menlo,monospace;
 }
 
-.logTime{
-    color:#53647a;
+.log-row:last-child{
+    border-bottom:0;
 }
 
-.adBox{
-    background:#05080c;
-    border:1px solid #202a37;
-    border-radius:12px;
-    padding:13px;
-    margin-bottom:9px;
-    font-family:ui-monospace,SFMono-Regular,Consolas,monospace;
-    font-size:10px;
-    white-space:pre-wrap;
-    word-break:break-word;
-    max-height:330px;
-    overflow:auto;
+.log-time{
+    color:#667487;
+}
+
+.log-info{
+    color:#aab8c8;
+}
+
+.log-good{
+    color:#79ddb4;
+}
+
+.log-warn{
+    color:#e6c66d;
+}
+
+.log-error{
+    color:#ff8585;
+}
+
+.empty{
+    color:#657282;
+    text-align:center;
+    padding:30px 15px;
+    font-size:12px;
+}
+
+.custom-controls{
+    display:grid;
+    grid-template-columns:1fr auto;
+    gap:8px;
+}
+
+input{
+    width:100%;
+    padding:11px 12px;
+    border-radius:10px;
+    border:1px solid #283441;
+    outline:none;
+    background:#080d13;
+    color:#eef4fa;
+}
+
+input:focus{
+    border-color:#377cb8;
+    box-shadow:0 0 0 3px rgba(55,124,184,.13);
+}
+
+.quick{
+    display:flex;
+    flex-wrap:wrap;
+    gap:7px;
+    margin-top:9px;
+}
+
+.quick button{
+    cursor:pointer;
+    padding:7px 9px;
+    border-radius:8px;
+    background:#121a23;
+    color:#b6c4d2;
+    border:1px solid #26333f;
+    font:10px ui-monospace,monospace;
 }
 
 .report{
-    background:#05080c;
-    border:1px solid #202a37;
-    border-radius:12px;
-    padding:14px;
-    min-height:220px;
-    max-height:500px;
-    overflow:auto;
     white-space:pre-wrap;
-    word-break:break-word;
-    font-family:ui-monospace,SFMono-Regular,Consolas,monospace;
-    font-size:10px;
+    max-height:450px;
+    overflow:auto;
+    padding:14px;
+    border-radius:13px;
+    background:#05080c;
+    border:1px solid #17202a;
+    color:#b8c6d5;
+    font:11px ui-monospace,SFMono-Regular,Menlo,monospace;
     line-height:1.55;
 }
 
-.progress{
-    height:7px;
-    border-radius:999px;
-    background:#172131;
-    overflow:hidden;
-    margin-top:12px;
-}
-
-.progressBar{
-    height:100%;
-    width:0%;
-    background:linear-gradient(90deg,#3288ed,#63b5ff);
-    transition:width .2s ease;
-}
-
-footer{
+.footer{
     text-align:center;
-    color:#647187;
+    color:#586575;
     font-size:11px;
-    margin-top:18px;
-    padding-bottom:10px;
+    padding:15px;
 }
 
 @media(max-width:850px){
-    body{
-        padding:14px;
-    }
-
-    .grid{
+    body{padding:12px}
+    .hero,.section-grid{
         grid-template-columns:1fr;
     }
-
-    .full{
-        grid-column:auto;
-    }
-
-    header{
+    .header{
         align-items:flex-start;
-        flex-direction:column;
     }
+}
 
-    .infoGrid{
+@media(max-width:560px){
+    .device-card{
+        align-items:flex-start;
+    }
+    .watch-icon{
+        width:65px;
+        height:90px;
+        border-radius:20px;
+    }
+    .watch-screen{
+        width:43px;
+        height:58px;
+    }
+    .meta-grid{
         grid-template-columns:1fr;
-    }
-
-    .charHeader,
-    .serviceHeader{
-        flex-direction:column;
-    }
-
-    .properties{
-        justify-content:flex-start;
     }
 }
 </style>
 </head>
 
 <body>
-
 <div class="app">
 
-<header>
+<header class="header">
     <div class="brand">
-        <div class="watchIcon">⌚</div>
+        <div class="logo">⌚</div>
         <div>
-            <h1>TRUEFREE GT2 Discovery Lab</h1>
-            <div class="subtitle">
-                Read-only BLE / GATT hardware discovery and diagnostics
-            </div>
+            <h1>TRUEFREE Watch GT2</h1>
+            <div class="subtitle">Read-only Bluetooth GATT Discovery Lab</div>
         </div>
     </div>
 
-    <div class="statusPill">
-        <span id="globalDot" class="dot"></span>
-        <span id="globalStatus">Disconnected</span>
+    <div class="status-pill">
+        <span id="statusDot" class="dot"></span>
+        <span id="statusText">Disconnected</span>
     </div>
 </header>
 
+<section class="hero">
 
-<div class="grid">
+    <div class="panel">
+        <div class="panel-inner">
+            <div class="device-card">
 
-<!-- FINGERPRINT -->
+                <div class="watch-icon">
+                    <div class="watch-screen">
+                        GT2<br>
+                        DISCOVERY
+                    </div>
+                </div>
 
-<section class="card">
+                <div style="min-width:0">
+                    <div class="device-name" id="deviceName">No device connected</div>
+                    <div class="device-address" id="deviceAddress">—</div>
 
-    <div class="cardTitle">
-        <h2>GT2 Fingerprint</h2>
-        <span>Known information</span>
-    </div>
+                    <div class="meta-grid">
+                        <div class="meta">
+                            <div class="meta-label">Firmware</div>
+                            <div class="meta-value">AP0.1B2.2R1.2</div>
+                        </div>
 
-    <div class="infoGrid">
+                        <div class="meta">
+                            <div class="meta-label">BK Version</div>
+                            <div class="meta-value">8.4</div>
+                        </div>
 
-        <div class="info">
-            <div class="infoLabel">Model</div>
-            <div class="infoValue">TRUEFREE Watch GT2</div>
-        </div>
+                        <div class="meta">
+                            <div class="meta-label">Known MAC</div>
+                            <div class="meta-value">45:41:44:6B:77:01</div>
+                        </div>
 
-        <div class="info">
-            <div class="infoLabel">Software</div>
-            <div class="infoValue">AP0.1B2.2R1.2</div>
-        </div>
+                        <div class="meta">
+                            <div class="meta-label">Mode</div>
+                            <div class="meta-value">READ-ONLY</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-        <div class="info">
-            <div class="infoLabel">BK Version</div>
-            <div class="infoValue">8.4</div>
-        </div>
+            <div class="actions">
+                <button type="button" class="btn primary" id="connectBtn">
+                    Connect & Discover
+                </button>
 
-        <div class="info">
-            <div class="infoLabel">Serial Number</div>
-            <div class="infoValue">014010240302020353</div>
-        </div>
+                <button type="button" class="btn danger" id="disconnectBtn" disabled>
+                    Disconnect
+                </button>
 
-        <div class="info">
-            <div class="infoLabel">Known MAC</div>
-            <div class="infoValue">45:41:44:6B:77:01</div>
-        </div>
+                <button type="button" class="btn" id="reportBtn">
+                    Generate Report
+                </button>
 
-        <div class="info">
-            <div class="infoLabel">Advertised Name</div>
-            <div class="infoValue" id="fingerprintName">
-                TRUEFREE Watch GT2
+                <button type="button" class="btn" id="copyReportBtn">
+                    Copy Report
+                </button>
+
+                <button type="button" class="btn" id="clearBtn">
+                    Clear Data
+                </button>
             </div>
         </div>
-
     </div>
 
-</section>
+    <div class="panel">
+        <div class="panel-inner">
+            <div class="panel-title">Live Discovery</div>
 
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-number" id="serviceCount">0</div>
+                    <div class="stat-label">Services</div>
+                </div>
 
-<!-- LIVE DEVICE -->
+                <div class="stat">
+                    <div class="stat-number" id="charCount">0</div>
+                    <div class="stat-label">Characteristics</div>
+                </div>
 
-<section class="card">
+                <div class="stat">
+                    <div class="stat-number" id="readCount">0</div>
+                    <div class="stat-label">Successful Reads</div>
+                </div>
 
-    <div class="cardTitle">
-        <h2>Live Device Data</h2>
-        <span>Browser-visible</span>
-    </div>
-
-    <div class="metric">
-        <span class="metricLabel">Device name</span>
-        <span class="metricValue" id="liveName">—</span>
-    </div>
-
-    <div class="metric">
-        <span class="metricLabel">Browser Bluetooth ID</span>
-        <span class="metricValue" id="liveId">—</span>
-    </div>
-
-    <div class="metric">
-        <span class="metricLabel">GATT state</span>
-        <span class="metricValue" id="liveGatt">Disconnected</span>
-    </div>
-
-    <div class="metric">
-        <span class="metricLabel">Services</span>
-        <span class="metricValue" id="liveServices">0</span>
-    </div>
-
-    <div class="metric">
-        <span class="metricLabel">Characteristics</span>
-        <span class="metricValue" id="liveCharacteristics">0</span>
-    </div>
-
-    <div class="metric">
-        <span class="metricLabel">Descriptors</span>
-        <span class="metricValue" id="liveDescriptors">0</span>
-    </div>
-
-    <div class="metric">
-        <span class="metricLabel">Notifications captured</span>
-        <span class="metricValue" id="liveNotifications">0</span>
-    </div>
-
-</section>
-
-
-<!-- CONNECTION -->
-
-<section class="card">
-
-    <div class="cardTitle">
-        <h2>Bluetooth Connection</h2>
-        <span>Read-only</span>
-    </div>
-
-    <div class="buttonRow">
-
-        <button
-            type="button"
-            class="primary"
-            id="connectBtn">
-            Connect to GT2
-        </button>
-
-        <button
-            type="button"
-            id="disconnectBtn">
-            Disconnect
-        </button>
-
-    </div>
-
-    <div class="infoGrid" style="margin-top:15px">
-
-        <div class="info">
-            <div class="infoLabel">Selected device</div>
-            <div class="infoValue" id="deviceName">
-                Not connected
+                <div class="stat">
+                    <div class="stat-number" id="packetCount">0</div>
+                    <div class="stat-label">Notifications</div>
+                </div>
             </div>
         </div>
-
-        <div class="info">
-            <div class="infoLabel">Browser ID</div>
-            <div class="infoValue" id="deviceId">—</div>
-        </div>
-
-        <div class="info">
-            <div class="infoLabel">GATT</div>
-            <div class="infoValue" id="gattStatus">
-                Disconnected
-            </div>
-        </div>
-
-        <div class="info">
-            <div class="infoLabel">Discovery result</div>
-            <div class="infoValue" id="discoveryResult">
-                Not started
-            </div>
-        </div>
-
-    </div>
-
-    <div class="notice good">
-        <strong>Read-only mode.</strong>
-        This page never writes to a characteristic and does not send OTA,
-        firmware, erase, reboot, or bootloader commands.
     </div>
 
 </section>
 
-
-<!-- CAPABILITIES -->
-
-<section class="card">
-
-    <div class="cardTitle">
-        <h2>Browser Capabilities</h2>
-        <span>Environment check</span>
-    </div>
-
-    <div class="metric">
-        <span class="metricLabel">Web Bluetooth</span>
-        <span class="metricValue" id="capBluetooth">Checking...</span>
-    </div>
-
-    <div class="metric">
-        <span class="metricLabel">GATT</span>
-        <span class="metricValue" id="capGatt">Checking...</span>
-    </div>
-
-    <div class="metric">
-        <span class="metricLabel">Advertisement monitoring</span>
-        <span class="metricValue" id="capAdvertisements">
-            Checking...
-        </span>
-    </div>
-
-    <div class="metric">
-        <span class="metricLabel">Secure context</span>
-        <span class="metricValue" id="capSecure">
-            Checking...
-        </span>
-    </div>
-
-    <div
-        id="browserNotice"
-        class="notice warning">
-        Checking browser capabilities...
-    </div>
-
-</section>
-
-
-<!-- REQUESTED SERVICES -->
-
-<section class="card full">
-
-    <div class="cardTitle">
-        <h2>Service Discovery Configuration</h2>
-        <span>Used when requesting the device</span>
-    </div>
-
-    <div class="notice">
-        <strong>Important:</strong>
-        Web Bluetooth requires proprietary services to be included in
-        <code>optionalServices</code> before a page can access them.
-        Add a UUID here if we discover one through another BLE scanner.
-    </div>
-
-    <div
-        class="inputRow"
-        style="margin-top:12px">
-
-        <input
-            id="customUuid"
-            type="text"
-            placeholder="Enter service UUID, e.g. 12345678-1234-1234-1234-123456789abc"
-            autocomplete="off">
-
-        <button
-            type="button"
-            class="primary"
-            id="addUuidBtn">
-            Add UUID
-        </button>
-
-    </div>
-
-    <div
-        class="buttonRow"
-        style="margin-top:10px">
-
-        <button
-            type="button"
-            class="small uuidBtn"
-            data-uuid="generic_access">
-            Generic Access 0x1800
-        </button>
-
-        <button
-            type="button"
-            class="small uuidBtn"
-            data-uuid="generic_attribute">
-            Generic Attribute 0x1801
-        </button>
-
-        <button
-            type="button"
-            class="small uuidBtn"
-            data-uuid="device_information">
-            Device Info 0x180A
-        </button>
-
-        <button
-            type="button"
-            class="small uuidBtn"
-            data-uuid="battery_service">
-            Battery 0x180F
-        </button>
-
-        <button
-            type="button"
-            class="small uuidBtn"
-            data-uuid="heart_rate">
-            Heart Rate 0x180D
-        </button>
-
-    </div>
-
-    <div
-        id="uuidList"
-        style="margin-top:13px">
-    </div>
-
-</section>
-
-
-<!-- GATT -->
-
-<section class="card full">
-
-    <div class="cardTitle">
-
-        <h2>GATT Database</h2>
-
-        <span id="gattSummary">
-            Waiting for connection
-        </span>
-
-    </div>
-
-    <div
-        id="gattServices">
-
-        <div class="empty">
-            Connect to the GT2 to begin GATT discovery.
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- NOTIFICATIONS -->
-
-<section class="card">
-
-    <div class="cardTitle">
-        <h2>Notification Monitor</h2>
-        <span>Read-only</span>
-    </div>
-
-    <div class="buttonRow">
-
-        <button
-            type="button"
-            class="primary"
-            id="startNotificationsBtn">
-            Start Notifications
-        </button>
-
-        <button
-            type="button"
-            id="stopNotificationsBtn">
-            Stop Notifications
-        </button>
-
-    </div>
-
-    <div class="progress">
-        <div
-            id="notificationProgress"
-            class="progressBar">
-        </div>
-    </div>
-
-    <div
-        id="notificationNotice"
-        class="notice">
-        Notifications are not being monitored.
-    </div>
-
-</section>
-
-
-<!-- READABLE CHARACTERISTICS -->
-
-<section class="card">
-
-    <div class="cardTitle">
-        <h2>Readable Data</h2>
-        <span>Safe reads only</span>
-    </div>
-
-    <button
-        type="button"
-        class="primary"
-        id="readAllBtn">
-        Read Accessible Characteristics
-    </button>
-
-    <div
-        id="readStatus"
-        class="notice">
-        No read operation performed.
-    </div>
-
-</section>
-
-
-<!-- ADVERTISEMENT -->
-
-<section class="card full">
-
-    <div class="cardTitle">
-
-        <h2>BLE Advertisement Monitor</h2>
-
-        <span>
-            Manufacturer / service data
-        </span>
-
-    </div>
-
-    <div class="buttonRow">
-
-        <button
-            type="button"
-            class="primary"
-            id="startAdvertisementBtn">
-            Start Advertisement Monitoring
-        </button>
-
-        <button
-            type="button"
-            id="stopAdvertisementBtn">
-            Stop Monitoring
-        </button>
-
-        <button
-            type="button"
-            id="clearAdvertisementBtn">
-            Clear Data
-        </button>
-
-    </div>
-
-    <div
-        id="advertisementNotice"
-        class="notice warning">
-        Advertisement monitoring has not started.
-    </div>
-
-    <div
-        id="advertisementData"
-        style="margin-top:12px">
-
-        <div class="empty">
-            No advertisement packets captured.
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- DIAGNOSTIC REPORT -->
-
-<section class="card full">
-
-    <div class="cardTitle">
-
-        <h2>Diagnostic Report</h2>
-
-        <span>
-            Exportable research data
-        </span>
-
-    </div>
-
-    <div class="buttonRow">
-
-        <button
-            type="button"
-            class="primary"
-            id="refreshReportBtn">
-            Refresh Report
-        </button>
-
-        <button
-            type="button"
-            id="copyReportBtn">
-            Copy Report
-        </button>
-
-        <button
-            type="button"
-            id="downloadReportBtn">
-            Download Report
-        </button>
-
-    </div>
-
-    <div
-        id="reportBox"
-        class="report"
-        style="margin-top:13px">
-        Report has not been generated yet.
-    </div>
-
-</section>
-
-
-<!-- LOG -->
-
-<section class="card full">
-
-    <div class="cardTitle">
-
-        <h2>Activity Log</h2>
-
-        <span>
-            BLE / GATT / diagnostics
-        </span>
-
-    </div>
-
-    <div class="buttonRow">
-
-        <button
-            type="button"
-            id="clearLogBtn">
-            Clear Log
-        </button>
-
-    </div>
-
-    <div
-        id="log"
-        class="log"
-        style="margin-top:12px">
-    </div>
-
-</section>
-
+<div class="notice">
+    <strong>⚠ Safe research mode:</strong>
+    This laboratory performs GATT discovery, safe reads, and notification/indication
+    monitoring only. It deliberately contains no firmware upload, OTA, erase, reboot,
+    bootloader, or characteristic-write controls.
 </div>
 
-<footer>
-    TRUEFREE GT2 Discovery Lab • Read-only research tool • No firmware writes
-</footer>
+<section class="panel" style="margin-bottom:18px">
+    <div class="panel-inner">
 
+        <div class="panel-title">Known GT2 Proprietary Services</div>
+
+        <div class="section-grid">
+
+            <div class="service open" id="service8800Card">
+                <div class="service-head" data-toggle="service8800Card">
+                    <div class="service-left">
+                        <div class="service-name">Secondary Data & Sync Service</div>
+                        <div class="uuid">
+                            00008800-0000-1000-8000-00805f9b34fb
+                        </div>
+                    </div>
+                    <div class="badge custom">PROPRIETARY</div>
+                </div>
+
+                <div class="service-body">
+                    <div id="chars8800">
+                        <div class="empty">
+                            Connect the watch to enumerate characteristics.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="service open" id="service9900Card">
+                <div class="service-head" data-toggle="service9900Card">
+                    <div class="service-left">
+                        <div class="service-name">Core Update & Communication Service</div>
+                        <div class="uuid">
+                            00009900-0000-1000-8000-00805f9b34fb
+                        </div>
+                    </div>
+                    <div class="badge custom">PROPRIETARY</div>
+                </div>
+
+                <div class="service-body">
+                    <div id="chars9900">
+                        <div class="empty">
+                            Connect the watch to enumerate characteristics.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="section-grid">
+
+    <div class="panel">
+        <div class="panel-inner">
+            <div class="panel-title">All GATT Services</div>
+            <div id="servicesContainer">
+                <div class="empty">
+                    No GATT services discovered yet.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel">
+        <div class="panel-inner">
+            <div class="panel-title">Custom Service UUID</div>
+
+            <div class="custom-controls">
+                <input
+                    id="customUuid"
+                    type="text"
+                    spellcheck="false"
+                    placeholder="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+                >
+
+                <button type="button" class="btn primary" id="addUuidBtn">
+                    Add
+                </button>
+            </div>
+
+            <div class="quick">
+                <button type="button" data-uuid="00008800-0000-1000-8000-00805f9b34fb">
+                    0x8800
+                </button>
+
+                <button type="button" data-uuid="00009900-0000-1000-8000-00805f9b34fb">
+                    0x9900
+                </button>
+            </div>
+
+            <div style="margin-top:15px;color:var(--muted);font-size:11px;line-height:1.5">
+                Custom UUIDs are requested before connecting. Add one before pressing
+                Connect & Discover if you want Chrome to expose another service.
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<section class="panel" style="margin-bottom:18px">
+    <div class="panel-inner">
+        <div class="panel-title">Notification / Indication Monitor</div>
+
+        <div id="packetContainer" class="log">
+            <div class="empty">
+                No notification packets captured.
+                <br><br>
+                The lab will automatically monitor the safe notification channels:
+                <br>
+                <b>8802</b> and <b>9901</b>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-grid">
+
+    <div class="panel">
+        <div class="panel-inner">
+            <div class="panel-title">Activity Log</div>
+
+            <div id="activityLog" class="log">
+                <div class="log-row">
+                    <span class="log-time">[ready]</span>
+                    <span class="log-info">Discovery Lab loaded.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel">
+        <div class="panel-inner">
+            <div class="panel-title">Diagnostic Report</div>
+
+            <div id="report" class="report">No report generated yet.</div>
+        </div>
+    </div>
+
+</section>
+
+<div class="footer">
+    TRUEFREE Watch GT2 Discovery Lab · Browser BLE · Read-only research mode
 </div>
 
+</div>
 
 <script>
 "use strict";
 
-/* =========================================================
-   TRUEFREE GT2 DISCOVERY LAB
-   READ-ONLY BLE / GATT RESEARCH TOOL
-   ========================================================= */
+/*
+    TRUEFREE Watch GT2 Discovery Lab
 
-const WATCH = {
-    model: "TRUEFREE Watch GT2",
-    software: "AP0.1B2.2R1.2",
-    bk: "8.4",
-    serial: "014010240302020353",
-    mac: "45:41:44:6B:77:01"
+    Known custom services:
+
+    00008800-0000-1000-8000-00805f9b34fb
+        00008801... WRITE WITHOUT RESPONSE
+        00008802... NOTIFY
+        00008803... READ / WRITE
+
+    00009900-0000-1000-8000-00805f9b34fb
+        00009901... NOTIFY / INDICATE
+        00009902... WRITE / WRITE WITHOUT RESPONSE
+
+    IMPORTANT:
+    This application NEVER performs characteristic.writeValue().
+*/
+
+const UUID = {
+    GAP: "00001800-0000-1000-8000-00805f9b34fb",
+    GATT: "00001801-0000-1000-8000-00805f9b34fb",
+
+    SERVICE_8800: "00008800-0000-1000-8000-00805f9b34fb",
+    CHAR_8801: "00008801-0000-1000-8000-00805f9b34fb",
+    CHAR_8802: "00008802-0000-1000-8000-00805f9b34fb",
+    CHAR_8803: "00008803-0000-1000-8000-00805f9b34fb",
+
+    SERVICE_9900: "00009900-0000-1000-8000-00805f9b34fb",
+    CHAR_9901: "00009901-0000-1000-8000-00805f9b34fb",
+    CHAR_9902: "00009902-0000-1000-8000-00805f9b34fb"
 };
 
-const STANDARD_UUIDS = [
-    "generic_access",
-    "generic_attribute",
-    "device_information",
-    "battery_service",
-    "heart_rate"
+const REQUIRED_CUSTOM_SERVICES = [
+    UUID.SERVICE_8800,
+    UUID.SERVICE_9900
 ];
 
-let requestedServices = [...STANDARD_UUIDS];
+const state = {
+    device: null,
+    server: null,
+    services: [],
+    characteristics: [],
+    descriptors: [],
+    reads: 0,
+    readFailures: 0,
+    packets: 0,
+    notifications: [],
+    logs: [],
+    connectedAt: null,
+    requestedUuids: [...REQUIRED_CUSTOM_SERVICES]
+};
 
-let bluetoothDevice = null;
-let gattServer = null;
+const $ = id => document.getElementById(id);
 
-let services = [];
-let characteristics = [];
-let descriptors = [];
-
-let notificationCount = 0;
-let notificationsRunning = false;
-
-let advertisementRunning = false;
-let advertisements = [];
-
-let initialized = false;
-
-
-/* =========================================================
-   SHORT DOM HELPER
-   ========================================================= */
-
-function $(id){
-    return document.getElementById(id);
+function nowTime(){
+    return new Date().toLocaleTimeString();
 }
 
+function log(message, type="info"){
+    const row = document.createElement("div");
+    row.className = "log-row";
 
-/* =========================================================
-   LOGGING
-   ========================================================= */
+    const time = document.createElement("span");
+    time.className = "log-time";
+    time.textContent = `[${nowTime()}] `;
 
-function log(message){
+    const text = document.createElement("span");
 
-    const box = $("log");
+    if(type === "good") text.className = "log-good";
+    else if(type === "warn") text.className = "log-warn";
+    else if(type === "error") text.className = "log-error";
+    else text.className = "log-info";
 
-    if(!box){
-        return;
-    }
+    text.textContent = message;
 
-    const line = document.createElement("div");
+    row.appendChild(time);
+    row.appendChild(text);
 
-    line.className = "logLine";
+    $("activityLog").appendChild(row);
+    $("activityLog").scrollTop = $("activityLog").scrollHeight;
 
-    const time = new Date().toLocaleTimeString();
-
-    line.innerHTML =
-        '<span class="logTime">[' +
-        escapeHTML(time) +
-        ']</span> ' +
-        escapeHTML(String(message));
-
-    box.appendChild(line);
-
-    box.scrollTop = box.scrollHeight;
+    state.logs.push({
+        time: new Date().toISOString(),
+        type,
+        message
+    });
 }
 
+function setStatus(connected, text){
+    $("statusDot").classList.toggle("connected", connected);
+    $("statusText").textContent = text;
+}
 
-/* =========================================================
-   ERROR LOGGING
-   ========================================================= */
-
-window.addEventListener("error", function(event){
-
-    log(
-        "JavaScript error: " +
-        event.message +
-        " at line " +
-        event.lineno
-    );
-
-});
-
-
-window.addEventListener("unhandledrejection", function(event){
-
-    log(
-        "Unhandled promise error: " +
-        (
-            event.reason &&
-            event.reason.message
-                ? event.reason.message
-                : String(event.reason)
-        )
-    );
-
-});
-
-
-/* =========================================================
-   HTML ESCAPING
-   ========================================================= */
-
-function escapeHTML(value){
-
+function escapeHtml(value){
     return String(value)
         .replaceAll("&","&amp;")
         .replaceAll("<","&lt;")
@@ -1251,2486 +993,991 @@ function escapeHTML(value){
         .replaceAll("'","&#039;");
 }
 
-
-/* =========================================================
-   UUID NORMALISATION
-   ========================================================= */
-
-function normaliseUUID(uuid){
-
-    return String(uuid || "")
-        .trim()
-        .toLowerCase();
+function normalizeUuid(uuid){
+    return String(uuid || "").trim().toLowerCase();
 }
 
-
-/* =========================================================
-   HEX CONVERSION
-   ========================================================= */
-
-function dataViewToHex(dataView){
-
-    if(!dataView){
-        return "";
-    }
-
-    const bytes = [];
-
-    for(let i = 0; i < dataView.byteLength; i++){
-
-        bytes.push(
-            dataView
-                .getUint8(i)
-                .toString(16)
-                .padStart(2,"0")
-                .toUpperCase()
-        );
-
-    }
-
-    return bytes.join(" ");
+function bytesToHex(bytes){
+    return Array.from(bytes)
+        .map(v => v.toString(16).padStart(2,"0").toUpperCase())
+        .join(" ");
 }
 
-
-/* =========================================================
-   ASCII DECODER
-   ========================================================= */
-
-function dataViewToASCII(dataView){
-
-    if(!dataView){
-        return "";
-    }
-
-    let output = "";
-
-    for(let i = 0; i < dataView.byteLength; i++){
-
-        const byte = dataView.getUint8(i);
-
-        if(byte >= 32 && byte <= 126){
-            output += String.fromCharCode(byte);
-        }else{
-            output += ".";
-        }
-
-    }
-
-    return output;
+function bytesToAscii(bytes){
+    return Array.from(bytes)
+        .map(v => (v >= 32 && v <= 126) ? String.fromCharCode(v) : ".")
+        .join("");
 }
 
-
-/* =========================================================
-   CAPABILITY CHECK
-   ========================================================= */
-
-function checkCapabilities(){
-
-    const bluetoothSupported =
-        "bluetooth" in navigator;
-
-    const secure =
-        window.isSecureContext;
-
-    let advertisementSupported = false;
-
-    try{
-
-        advertisementSupported =
-            typeof BluetoothDevice !== "undefined" &&
-            "watchAdvertisements" in BluetoothDevice.prototype;
-
-    }catch(error){
-
-        advertisementSupported = false;
-
-    }
-
-
-    $("capBluetooth").textContent =
-        bluetoothSupported
-            ? "Supported"
-            : "Not supported";
-
-    $("capBluetooth").className =
-        "metricValue " +
-        (
-            bluetoothSupported
-                ? "greenText"
-                : "redText"
-        );
-
-
-    $("capGatt").textContent =
-        bluetoothSupported
-            ? "Available"
-            : "Unavailable";
-
-    $("capGatt").className =
-        "metricValue " +
-        (
-            bluetoothSupported
-                ? "greenText"
-                : "redText"
-        );
-
-
-    $("capAdvertisements").textContent =
-        advertisementSupported
-            ? "Supported"
-            : "Not exposed";
-
-
-    $("capAdvertisements").className =
-        "metricValue " +
-        (
-            advertisementSupported
-                ? "greenText"
-                : "yellowText"
-        );
-
-
-    $("capSecure").textContent =
-        secure
-            ? "Secure context"
-            : "Not secure";
-
-
-    $("capSecure").className =
-        "metricValue " +
-        (
-            secure
-                ? "greenText"
-                : "redText"
-        );
-
-
-    const notice = $("browserNotice");
-
-
-    if(!bluetoothSupported){
-
-        notice.className = "notice error";
-
-        notice.innerHTML =
-            "<strong>Web Bluetooth is unavailable.</strong> " +
-            "Use a Chromium-based browser with Bluetooth support.";
-
-        return;
-    }
-
-
-    if(!secure){
-
-        notice.className = "notice error";
-
-        notice.innerHTML =
-            "<strong>This page is not running in a secure context.</strong> " +
-            "Web Bluetooth normally requires HTTPS or localhost.";
-
-        return;
-    }
-
-
-    if(advertisementSupported){
-
-        notice.className = "notice good";
-
-        notice.innerHTML =
-            "<strong>Bluetooth is available.</strong> " +
-            "This browser also exposes advertisement monitoring.";
-
-    }else{
-
-        notice.className = "notice warning";
-
-        notice.innerHTML =
-            "<strong>Bluetooth is available.</strong> " +
-            "However, this browser does not expose advertisement " +
-            "monitoring through Web Bluetooth.";
-
-    }
-
+function valueToBytes(dataView){
+    return new Uint8Array(
+        dataView.buffer,
+        dataView.byteOffset,
+        dataView.byteLength
+    );
 }
 
+function updateStats(){
+    $("serviceCount").textContent = state.services.length;
+    $("charCount").textContent = state.characteristics.length;
+    $("readCount").textContent = state.reads;
+    $("packetCount").textContent = state.packets;
+}
 
-/* =========================================================
-   UUID LIST
-   ========================================================= */
+function getProperties(characteristic){
+    const props = [];
 
-function renderUUIDList(){
+    if(characteristic.properties.read) props.push("READ");
+    if(characteristic.properties.write) props.push("WRITE");
+    if(characteristic.properties.writeWithoutResponse) {
+        props.push("WRITE WITHOUT RESPONSE");
+    }
+    if(characteristic.properties.notify) props.push("NOTIFY");
+    if(characteristic.properties.indicate) props.push("INDICATE");
 
-    const box = $("uuidList");
+    return props;
+}
 
-    box.innerHTML = "";
+function propertyClass(prop){
+    const p = prop.toLowerCase();
 
-    requestedServices.forEach(function(uuid){
+    if(p === "read") return "read";
+    if(p === "notify") return "notify";
+    if(p === "indicate") return "indicate";
+    if(p === "write") return "write";
+    if(p.includes("without")) return "wwr";
 
-        const row = document.createElement("div");
+    return "";
+}
 
-        row.style.display = "flex";
-        row.style.justifyContent = "space-between";
-        row.style.alignItems = "center";
-        row.style.gap = "10px";
-        row.style.padding = "9px 11px";
-        row.style.marginBottom = "7px";
-        row.style.background = "#0a0f16";
-        row.style.border = "1px solid #202a38";
-        row.style.borderRadius = "10px";
+function renderCharacteristic(service, characteristic){
+    const wrapper = document.createElement("div");
+    wrapper.className = "characteristic";
 
-        row.innerHTML =
-            "<span style=\"font-family:ui-monospace,monospace;font-size:11px;word-break:break-all\">" +
-            escapeHTML(uuid) +
-            "</span>" +
-            "<span class=\"tag\">requested</span>";
+    const props = getProperties(characteristic);
 
-        box.appendChild(row);
+    const top = document.createElement("div");
+    top.className = "char-top";
 
+    const left = document.createElement("div");
+
+    const title = document.createElement("div");
+    title.className = "char-title";
+    title.textContent = characteristic.uuid;
+
+    left.appendChild(title);
+
+    const propBox = document.createElement("div");
+    propBox.className = "properties";
+
+    props.forEach(prop => {
+        const badge = document.createElement("span");
+        badge.className = "prop " + propertyClass(prop);
+        badge.textContent = prop;
+        propBox.appendChild(badge);
     });
 
-}
+    left.appendChild(propBox);
+    top.appendChild(left);
 
+    wrapper.appendChild(top);
 
-/* =========================================================
-   ADD UUID
-   ========================================================= */
+    const isSafeReadable = characteristic.properties.read === true;
 
-function addUUID(uuid){
-
-    uuid = String(uuid || "").trim();
-
-    if(!uuid){
-
-        log("Cannot add an empty UUID.");
-
-        return;
+    if(
+        characteristic.uuid === UUID.CHAR_8803 &&
+        isSafeReadable
+    ){
+        const safe = document.createElement("div");
+        safe.className = "read-only";
+        safe.textContent = "✓ Safe automatic read enabled";
+        wrapper.appendChild(safe);
     }
 
+    const readout = document.createElement("div");
+    readout.className = "readout";
+    readout.style.display = "none";
 
-    const normal =
-        normaliseUUID(uuid);
+    const label = document.createElement("div");
+    label.className = "readout-label";
+    label.textContent = "Latest value";
 
+    const hex = document.createElement("div");
+    hex.className = "hex";
 
-    const already =
-        requestedServices.some(function(item){
+    const ascii = document.createElement("div");
+    ascii.className = "ascii";
 
-            return normaliseUUID(item) === normal;
+    readout.appendChild(label);
+    readout.appendChild(hex);
+    readout.appendChild(ascii);
 
+    wrapper.appendChild(readout);
+
+    /*
+       Deliberately no write button is created.
+    */
+
+    if(isSafeReadable){
+        const actions = document.createElement("div");
+        actions.className = "char-actions";
+
+        const readButton = document.createElement("button");
+        readButton.type = "button";
+        readButton.className = "small-btn";
+        readButton.textContent = "Read";
+
+        readButton.addEventListener("click", async event => {
+            event.preventDefault();
+            event.stopPropagation();
+
+            await readCharacteristic(
+                characteristic,
+                hex,
+                ascii,
+                readout
+            );
         });
 
-
-    if(already){
-
-        log("UUID already requested: " + uuid);
-
-        return;
+        actions.appendChild(readButton);
+        wrapper.appendChild(actions);
     }
 
-
-    requestedServices.push(uuid);
-
-    renderUUIDList();
-
-    log("Added service UUID: " + uuid);
-
-    refreshReport();
-
+    return wrapper;
 }
 
+function renderCustomService(service){
+    const uuid = normalizeUuid(service.uuid);
 
-/* =========================================================
-   DEVICE STATE
-   ========================================================= */
+    let target;
 
-function updateDeviceUI(){
-
-    if(!bluetoothDevice){
-
-        $("deviceName").textContent =
-            "Not connected";
-
-        $("deviceId").textContent =
-            "—";
-
-        $("liveName").textContent =
-            "—";
-
-        $("liveId").textContent =
-            "—";
-
-        $("liveGatt").textContent =
-            "Disconnected";
-
+    if(uuid === UUID.SERVICE_8800){
+        target = $("chars8800");
+    }else if(uuid === UUID.SERVICE_9900){
+        target = $("chars9900");
+    }else{
         return;
     }
 
+    target.innerHTML = "";
 
-    const name =
-        bluetoothDevice.name ||
-        "Unnamed Bluetooth device";
+    if(!service.characteristics.length){
+        target.innerHTML =
+            '<div class="empty">No characteristics exposed by Chrome.</div>';
+        return;
+    }
 
-
-    const id =
-        bluetoothDevice.id ||
-        "Unavailable";
-
-
-    const connected =
-        !!(
-            bluetoothDevice.gatt &&
-            bluetoothDevice.gatt.connected
+    service.characteristics.forEach(characteristic => {
+        target.appendChild(
+            renderCharacteristic(service, characteristic)
         );
-
-
-    $("deviceName").textContent =
-        name;
-
-    $("deviceId").textContent =
-        id;
-
-    $("liveName").textContent =
-        name;
-
-    $("liveId").textContent =
-        id;
-
-    $("liveGatt").textContent =
-        connected
-            ? "Connected"
-            : "Disconnected";
-
-    $("fingerprintName").textContent =
-        name;
-
-
-    $("gattStatus").textContent =
-        connected
-            ? "Connected"
-            : "Disconnected";
-
-
-    $("gattStatus").className =
-        "infoValue " +
-        (
-            connected
-                ? "greenText"
-                : ""
-        );
-
-
-    $("globalStatus").textContent =
-        connected
-            ? "GATT connected"
-            : "Disconnected";
-
-
-    $("globalDot").className =
-        connected
-            ? "dot green"
-            : "dot";
-
+    });
 }
 
+function renderAllServices(){
+    const container = $("servicesContainer");
+    container.innerHTML = "";
 
-/* =========================================================
-   CONNECT
-   ========================================================= */
-
-async function connectGT2(){
-
-    if(!("bluetooth" in navigator)){
-
-        log("Web Bluetooth is unavailable.");
-
-        alert(
-            "Web Bluetooth is not available in this browser."
-        );
-
+    if(!state.services.length){
+        container.innerHTML =
+            '<div class="empty">No GATT services discovered yet.</div>';
         return;
     }
 
+    state.services.forEach(service => {
+        const card = document.createElement("div");
+        card.className = "service";
 
-    try{
+        const head = document.createElement("div");
+        head.className = "service-head";
 
-        log("Opening Bluetooth device picker...");
+        const left = document.createElement("div");
+        left.className = "service-left";
 
+        const name = document.createElement("div");
+        name.className = "service-name";
 
-        const uniqueServices =
-            Array.from(
-                new Set(requestedServices)
+        const serviceUuid = normalizeUuid(service.uuid);
+
+        if(serviceUuid === UUID.GAP){
+            name.textContent = "Generic Access";
+        }else if(serviceUuid === UUID.GATT){
+            name.textContent = "Generic Attribute";
+        }else if(serviceUuid === UUID.SERVICE_8800){
+            name.textContent = "GT2 Proprietary Service 8800";
+        }else if(serviceUuid === UUID.SERVICE_9900){
+            name.textContent = "GT2 Proprietary Service 9900";
+        }else{
+            name.textContent = "Custom / Unknown Service";
+        }
+
+        const uuid = document.createElement("div");
+        uuid.className = "uuid";
+        uuid.textContent = service.uuid;
+
+        left.appendChild(name);
+        left.appendChild(uuid);
+
+        const badge = document.createElement("div");
+        badge.className =
+            "badge " +
+            (
+                serviceUuid === UUID.GAP ||
+                serviceUuid === UUID.GATT
+                ? "standard"
+                : "custom"
             );
 
+        badge.textContent =
+            (
+                serviceUuid === UUID.GAP ||
+                serviceUuid === UUID.GATT
+            )
+            ? "STANDARD"
+            : "CUSTOM";
 
-        bluetoothDevice =
-            await navigator.bluetooth.requestDevice({
+        head.appendChild(left);
+        head.appendChild(badge);
 
-                acceptAllDevices: true,
+        const body = document.createElement("div");
+        body.className = "service-body";
 
-                optionalServices:
-                    uniqueServices
-
+        if(!service.characteristics.length){
+            body.innerHTML =
+                '<div class="empty">No characteristics found.</div>';
+        }else{
+            service.characteristics.forEach(characteristic => {
+                body.appendChild(
+                    renderCharacteristic(service, characteristic)
+                );
             });
+        }
 
+        head.addEventListener("click", () => {
+            card.classList.toggle("open");
+        });
+
+        card.appendChild(head);
+        card.appendChild(body);
+
+        container.appendChild(card);
+    });
+
+    state.services.forEach(renderCustomService);
+}
+
+async function readCharacteristic(
+    characteristic,
+    hexElement = null,
+    asciiElement = null,
+    readout = null
+){
+    try{
+        log(`Reading ${characteristic.uuid}...`);
+
+        const value = await characteristic.readValue();
+        const bytes = valueToBytes(value);
+
+        const hex = bytesToHex(bytes);
+        const ascii = bytesToAscii(bytes);
+
+        state.reads++;
+
+        if(hexElement){
+            hexElement.textContent = hex || "(empty)";
+            asciiElement.textContent = `ASCII: ${ascii || "(empty)"}`;
+            readout.style.display = "block";
+        }
 
         log(
-            "Selected device: " +
-            (
-                bluetoothDevice.name ||
-                "Unnamed device"
+            `${characteristic.uuid} → ${hex || "(empty)"}`,
+            "good"
+        );
+
+        updateStats();
+
+        return {
+            hex,
+            ascii,
+            bytes: Array.from(bytes)
+        };
+
+    }catch(error){
+        state.readFailures++;
+
+        log(
+            `Read failed ${characteristic.uuid}: ${error.message}`,
+            "error"
+        );
+
+        updateStats();
+
+        return null;
+    }
+}
+
+async function setupNotification(characteristic){
+    if(!characteristic.properties.notify &&
+       !characteristic.properties.indicate){
+        return;
+    }
+
+    /*
+       Notification/indication subscription is safe:
+       no data is written to the characteristic itself.
+    */
+
+    try{
+        await characteristic.startNotifications();
+
+        characteristic.addEventListener(
+            "characteristicvaluechanged",
+            event => handlePacket(
+                characteristic,
+                event.target.value
             )
         );
 
+        log(
+            `Monitoring ${characteristic.uuid}`,
+            "good"
+        );
 
-        bluetoothDevice.addEventListener(
+    }catch(error){
+        log(
+            `Could not monitor ${characteristic.uuid}: ${error.message}`,
+            "warn"
+        );
+    }
+}
+
+function handlePacket(characteristic, dataView){
+    const bytes = valueToBytes(dataView);
+
+    const hex = bytesToHex(bytes);
+    const ascii = bytesToAscii(bytes);
+
+    state.packets++;
+
+    const packet = {
+        time: new Date().toISOString(),
+        characteristic: characteristic.uuid,
+        hex,
+        ascii,
+        bytes: Array.from(bytes)
+    };
+
+    state.notifications.push(packet);
+
+    renderPacket(packet);
+    updateStats();
+
+    log(
+        `Packet from ${characteristic.uuid}: ${hex || "(empty)"}`,
+        "good"
+    );
+}
+
+function renderPacket(packet){
+    const container = $("packetContainer");
+
+    const empty = container.querySelector(".empty");
+    if(empty) empty.remove();
+
+    const row = document.createElement("div");
+    row.className = "log-row";
+
+    const time = new Date(packet.time).toLocaleTimeString();
+
+    row.innerHTML =
+        `<span class="log-time">[${escapeHtml(time)}]</span> ` +
+        `<span class="log-good">${escapeHtml(packet.characteristic)}</span>` +
+        `<br>` +
+        `<span class="log-info">HEX: ${escapeHtml(packet.hex || "(empty)")}</span>` +
+        `<br>` +
+        `<span class="ascii">ASCII: ${escapeHtml(packet.ascii || "(empty)")}</span>`;
+
+    container.appendChild(row);
+    container.scrollTop = container.scrollHeight;
+}
+
+async function inspectService(service){
+    log(`Inspecting service ${service.uuid}...`);
+
+    let characteristics;
+
+    try{
+        characteristics =
+            await service.getCharacteristics();
+    }catch(error){
+        log(
+            `Could not enumerate characteristics for ${service.uuid}: ${error.message}`,
+            "error"
+        );
+        return;
+    }
+
+    service.characteristics = characteristics;
+
+    characteristics.forEach(characteristic => {
+        state.characteristics.push({
+            service: service.uuid,
+            uuid: characteristic.uuid,
+            properties: getProperties(characteristic)
+        });
+    });
+
+    for(const characteristic of characteristics){
+
+        /*
+            Descriptor enumeration is read-only discovery.
+        */
+
+        try{
+            const descriptors =
+                await characteristic.getDescriptors();
+
+            descriptors.forEach(descriptor => {
+                state.descriptors.push({
+                    characteristic: characteristic.uuid,
+                    uuid: descriptor.uuid
+                });
+            });
+
+        }catch(error){
+            log(
+                `Descriptor enumeration failed for ${characteristic.uuid}`,
+                "warn"
+            );
+        }
+
+        /*
+            Safe reads:
+            - Any readable characteristic can be manually read.
+            - 8803 is automatically read because it is the known
+              read-only-capable configuration/data characteristic.
+        */
+
+        if(
+            characteristic.uuid === UUID.CHAR_8803 &&
+            characteristic.properties.read
+        ){
+            await readCharacteristic(characteristic);
+        }
+
+        /*
+            Automatically monitor only the known notification/
+            indication channels.
+        */
+
+        if(
+            characteristic.uuid === UUID.CHAR_8802 ||
+            characteristic.uuid === UUID.CHAR_9901
+        ){
+            await setupNotification(characteristic);
+        }
+    }
+}
+
+async function discover(){
+    if(!navigator.bluetooth){
+        log(
+            "Web Bluetooth is not available in this browser.",
+            "error"
+        );
+        alert(
+            "Web Bluetooth is not available. Use a supported Chromium browser over HTTPS or localhost."
+        );
+        return;
+    }
+
+    try{
+        log("Opening Bluetooth device chooser...");
+
+        const optionalServices = [
+            ...new Set([
+                ...REQUIRED_CUSTOM_SERVICES,
+                ...state.requestedUuids
+            ])
+        ];
+
+        const device =
+            await navigator.bluetooth.requestDevice({
+                acceptAllDevices: true,
+                optionalServices
+            });
+
+        state.device = device;
+
+        $("deviceName").textContent =
+            device.name || "Unnamed Bluetooth device";
+
+        $("deviceAddress").textContent =
+            device.id || "Browser-assigned Bluetooth ID";
+
+        device.addEventListener(
             "gattserverdisconnected",
             handleDisconnect
         );
 
-
-        updateDeviceUI();
-
-
-        $("discoveryResult").textContent =
-            "Connecting...";
-
-
-        log("Connecting to GATT server...");
-
-
-        gattServer =
-            await bluetoothDevice.gatt.connect();
-
-
-        log("GATT connection established.");
-
-
-        updateDeviceUI();
-
-
-        await discoverGATT();
-
-
-    }catch(error){
-
         log(
-            "Connection error: " +
-            error.name +
-            ": " +
-            error.message
+            `Selected ${device.name || "unnamed device"}`,
+            "good"
         );
 
+        setStatus(false,"Connecting...");
+        $("connectBtn").disabled = true;
+        $("disconnectBtn").disabled = false;
 
-        $("discoveryResult").textContent =
-            "Connection failed";
+        state.server =
+            await device.gatt.connect();
 
+        state.connectedAt = new Date();
 
-        updateDeviceUI();
+        setStatus(true,"Connected");
 
-        refreshReport();
+        log("GATT connection established.", "good");
 
-    }
+        await discoverServices();
 
-}
+    }catch(error){
+        console.error(error);
 
+        setStatus(false,"Disconnected");
 
-/* =========================================================
-   DISCONNECT
-   ========================================================= */
+        $("connectBtn").disabled = false;
+        $("disconnectBtn").disabled = true;
 
-function disconnectGT2(){
-
-    try{
-
-        if(
-            bluetoothDevice &&
-            bluetoothDevice.gatt &&
-            bluetoothDevice.gatt.connected
-        ){
-
-            bluetoothDevice.gatt.disconnect();
-
-            log("Disconnected from GT2.");
-
+        if(error.name === "NotFoundError"){
+            log("Bluetooth device selection cancelled.", "warn");
         }else{
-
-            log("No active GATT connection.");
-
+            log(
+                `Connection error: ${error.message}`,
+                "error"
+            );
         }
-
-    }catch(error){
-
-        log(
-            "Disconnect error: " +
-            error.message
-        );
-
     }
-
-
-    gattServer = null;
-
-    updateDeviceUI();
-
-    refreshReport();
-
 }
 
+async function discoverServices(){
+    state.services = [];
+    state.characteristics = [];
+    state.descriptors = [];
+    state.reads = 0;
+    state.readFailures = 0;
+    state.packets = 0;
+    state.notifications = [];
 
-/* =========================================================
-   DISCONNECT EVENT
-   ========================================================= */
+    $("packetContainer").innerHTML =
+        '<div class="empty">Waiting for notification packets...</div>';
 
-function handleDisconnect(){
+    updateStats();
 
-    log("GT2 GATT connection disconnected.");
-
-    gattServer = null;
-
-    updateDeviceUI();
-
-    $("discoveryResult").textContent =
-        "Disconnected";
-
-    refreshReport();
-
-}
-
-
-/* =========================================================
-   GATT DISCOVERY
-   ========================================================= */
-
-async function discoverGATT(){
-
-    services = [];
-    characteristics = [];
-    descriptors = [];
-
-
-    renderGATT();
-
-
-    if(!gattServer){
-
-        log("No GATT server is available.");
-
-        return;
-    }
-
-
-    $("discoveryResult").textContent =
-        "Discovering services...";
-
-
-    log("Requesting primary GATT services...");
-
+    let services = [];
 
     try{
-
         services =
-            await gattServer.getPrimaryServices();
-
-
-        log(
-            "Primary service discovery returned " +
-            services.length +
-            " service(s)."
-        );
-
+            await state.server.getPrimaryServices();
     }catch(error){
-
         log(
-            "Primary service discovery failed: " +
-            error.name +
-            ": " +
-            error.message
+            `Primary service discovery failed: ${error.message}`,
+            "error"
         );
-
-
-        log(
-            "Trying individually requested services..."
-        );
-
-
-        for(const uuid of requestedServices){
-
-            try{
-
-                const service =
-                    await gattServer.getPrimaryService(uuid);
-
-
-                if(
-                    !services.some(function(existing){
-
-                        return existing.uuid === service.uuid;
-
-                    })
-                ){
-
-                    services.push(service);
-
-                }
-
-
-                log(
-                    "Accessible service found: " +
-                    service.uuid
-                );
-
-            }catch(innerError){
-
-                log(
-                    "Service unavailable: " +
-                    uuid
-                );
-
-            }
-
-        }
-
-    }
-
-
-    if(!services.length){
-
-        $("discoveryResult").textContent =
-            "0 services exposed";
-
-
-        $("gattSummary").textContent =
-            "0 accessible services";
-
-
-        $("liveServices").textContent =
-            "0";
-
-
-        $("liveCharacteristics").textContent =
-            "0";
-
-
-        $("liveDescriptors").textContent =
-            "0";
-
-
-        renderGATT();
-
-
-        log(
-            "RESULT: Browser exposed 0 accessible GATT services."
-        );
-
-
-        log(
-            "This does NOT prove that the physical GT2 has no GATT services."
-        );
-
-
-        log(
-            "The browser may be hiding proprietary services or access may be restricted."
-        );
-
-
-        refreshReport();
-
         return;
     }
 
-
-    $("discoveryResult").textContent =
-        "Services found";
-
+    log(
+        `Chrome exposed ${services.length} primary services.`,
+        "good"
+    );
 
     for(const service of services){
+        state.services.push(service);
+    }
 
+    renderAllServices();
+    updateStats();
+
+    for(const service of state.services){
         await inspectService(service);
-
     }
 
+    renderAllServices();
+    updateStats();
 
-    $("liveServices").textContent =
-        String(services.length);
+    const found8800 =
+        state.services.some(
+            s => normalizeUuid(s.uuid) === UUID.SERVICE_8800
+        );
 
+    const found9900 =
+        state.services.some(
+            s => normalizeUuid(s.uuid) === UUID.SERVICE_9900
+        );
 
-    $("liveCharacteristics").textContent =
-        String(characteristics.length);
+    if(found8800){
+        log(
+            "GT2 proprietary service 0x8800 successfully exposed.",
+            "good"
+        );
+    }else{
+        log(
+            "Service 0x8800 was not exposed by this browser connection.",
+            "warn"
+        );
+    }
 
-
-    $("liveDescriptors").textContent =
-        String(descriptors.length);
-
-
-    $("gattSummary").textContent =
-        services.length +
-        " service(s) • " +
-        characteristics.length +
-        " characteristic(s) • " +
-        descriptors.length +
-        " descriptor(s)";
-
-
-    renderGATT();
-
-
-    refreshReport();
-
-}
-
-
-/* =========================================================
-   SERVICE INSPECTION
-   ========================================================= */
-
-async function inspectService(service){
+    if(found9900){
+        log(
+            "GT2 proprietary service 0x9900 successfully exposed.",
+            "good"
+        );
+    }else{
+        log(
+            "Service 0x9900 was not exposed by this browser connection.",
+            "warn"
+        );
+    }
 
     log(
-        "Inspecting service: " +
-        service.uuid
+        `Discovery complete: ${state.services.length} services, ${state.characteristics.length} characteristics.`,
+        "good"
     );
-
-
-    let chars = [];
-
-
-    try{
-
-        chars =
-            await service.getCharacteristics();
-
-
-    }catch(error){
-
-        log(
-            "Could not enumerate characteristics for " +
-            service.uuid +
-            ": " +
-            error.message
-        );
-
-        return;
-    }
-
-
-    log(
-        service.uuid +
-        " contains " +
-        chars.length +
-        " characteristic(s)."
-    );
-
-
-    for(const characteristic of chars){
-
-        characteristic._descriptors =
-            [];
-
-        characteristics.push(
-            characteristic
-        );
-
-
-        await inspectCharacteristic(
-            characteristic
-        );
-
-    }
-
 }
 
+function handleDisconnect(){
+    setStatus(false,"Disconnected");
 
-/* =========================================================
-   CHARACTERISTIC INSPECTION
-   ========================================================= */
+    $("connectBtn").disabled = false;
+    $("disconnectBtn").disabled = true;
 
-async function inspectCharacteristic(characteristic){
-
-    const properties =
-        characteristic.properties || {};
-
-
-    const propertyNames = [];
-
-
-    if(properties.broadcast)
-        propertyNames.push("broadcast");
-
-    if(properties.read)
-        propertyNames.push("read");
-
-    if(properties.writeWithoutResponse)
-        propertyNames.push("write without response");
-
-    if(properties.write)
-        propertyNames.push("write");
-
-    if(properties.notify)
-        propertyNames.push("notify");
-
-    if(properties.indicate)
-        propertyNames.push("indicate");
-
-    if(properties.authenticatedSignedWrites)
-        propertyNames.push("authenticated signed writes");
-
-
-    log(
-        "Characteristic " +
-        characteristic.uuid +
-        " [" +
-        propertyNames.join(", ") +
-        "]"
-    );
-
-
-    try{
-
-        const foundDescriptors =
-            await characteristic.getDescriptors();
-
-
-        characteristic._descriptors =
-            foundDescriptors;
-
-
-        for(const descriptor of foundDescriptors){
-
-            descriptors.push(
-                descriptor
-            );
-
-
-            log(
-                "Descriptor found: " +
-                descriptor.uuid +
-                " on " +
-                characteristic.uuid
-            );
-
-        }
-
-    }catch(error){
-
-        log(
-            "Descriptor enumeration failed for " +
-            characteristic.uuid +
-            ": " +
-            error.message
-        );
-
-    }
-
-
-    renderGATT();
-
+    log("GATT device disconnected.", "warn");
 }
 
-
-/* =========================================================
-   READ ALL ACCESSIBLE CHARACTERISTICS
-   ========================================================= */
-
-async function readAllCharacteristics(){
-
-    if(!characteristics.length){
-
-        $("readStatus").className =
-            "notice warning";
-
-        $("readStatus").textContent =
-            "There are no accessible characteristics to read.";
-
-        log(
-            "Read operation skipped: no accessible characteristics."
-        );
-
-        return;
-    }
-
-
-    let successful = 0;
-
-    let failed = 0;
-
-
-    $("readStatus").className =
-        "notice";
-
-
-    $("readStatus").textContent =
-        "Reading accessible characteristics...";
-
-
-    for(const characteristic of characteristics){
-
-        if(
-            !characteristic.properties ||
-            !characteristic.properties.read
-        ){
-
-            continue;
-        }
-
-
-        try{
-
-            const value =
-                await characteristic.readValue();
-
-
-            characteristic._lastValue =
-                dataViewToHex(value);
-
-
-            characteristic._lastASCII =
-                dataViewToASCII(value);
-
-
-            successful++;
-
-
-            log(
-                "READ " +
-                characteristic.uuid +
-                " → " +
-                characteristic._lastValue
-            );
-
-
-        }catch(error){
-
-            failed++;
-
-
-            log(
-                "READ FAILED " +
-                characteristic.uuid +
-                ": " +
-                error.message
-            );
-
-        }
-
-    }
-
-
-    renderGATT();
-
-
-    $("readStatus").className =
-        successful
-            ? "notice good"
-            : "notice warning";
-
-
-    $("readStatus").textContent =
-        "Read complete. Successful: " +
-        successful +
-        " • Failed: " +
-        failed;
-
-
-    refreshReport();
-
-}
-
-
-/* =========================================================
-   NOTIFICATION HANDLER
-   ========================================================= */
-
-function handleNotification(event){
-
-    const characteristic =
-        event.target;
-
-
-    notificationCount++;
-
-
-    $("liveNotifications").textContent =
-        String(notificationCount);
-
-
-    const hex =
-        dataViewToHex(
-            characteristic.value
-        );
-
-
-    const ascii =
-        dataViewToASCII(
-            characteristic.value
-        );
-
-
-    characteristic._lastNotification =
-        hex;
-
-
-    characteristic._lastNotificationASCII =
-        ascii;
-
-
-    log(
-        "NOTIFICATION " +
-        characteristic.uuid +
-        " → " +
-        hex +
-        (
-            ascii
-                ? " | ASCII: " + ascii
-                : ""
-        )
-    );
-
-
-    renderGATT();
-
-    refreshReport();
-
-}
-
-
-/* =========================================================
-   START NOTIFICATIONS
-   ========================================================= */
-
-async function startNotifications(){
-
-    const candidates =
-        characteristics.filter(function(characteristic){
-
-            return characteristic.properties &&
-                (
-                    characteristic.properties.notify ||
-                    characteristic.properties.indicate
-                );
-
-        });
-
-
-    if(!candidates.length){
-
-        $("notificationNotice").className =
-            "notice warning";
-
-
-        $("notificationNotice").innerHTML =
-            "<strong>No notification/indication characteristics are accessible.</strong>";
-
-
-        log(
-            "No notification-capable characteristics found."
-        );
-
-        return;
-    }
-
-
-    let started = 0;
-
-
-    for(const characteristic of candidates){
-
-        try{
-
-            await characteristic.startNotifications();
-
-
-            characteristic.removeEventListener(
-                "characteristicvaluechanged",
-                handleNotification
-            );
-
-
-            characteristic.addEventListener(
-                "characteristicvaluechanged",
-                handleNotification
-            );
-
-
-            started++;
-
-
-            log(
-                "Notification monitoring enabled: " +
-                characteristic.uuid
-            );
-
-
-        }catch(error){
-
-            log(
-                "Notification setup failed for " +
-                characteristic.uuid +
-                ": " +
-                error.message
-            );
-
-        }
-
-    }
-
-
-    notificationsRunning =
-        started > 0;
-
-
-    $("notificationNotice").className =
-        started
-            ? "notice good"
-            : "notice warning";
-
-
-    $("notificationNotice").innerHTML =
-        started
-            ? "<strong>Monitoring " +
-              started +
-              " characteristic(s).</strong> Waiting for data."
-            : "<strong>Notification monitoring could not be started.</strong>";
-
-
-    $("notificationProgress").style.width =
-        started
-            ? "100%"
-            : "0%";
-
-
-    refreshReport();
-
-}
-
-
-/* =========================================================
-   STOP NOTIFICATIONS
-   ========================================================= */
-
-async function stopNotifications(){
-
-    for(const characteristic of characteristics){
-
-        if(
-            !characteristic.properties ||
-            !(
-                characteristic.properties.notify ||
-                characteristic.properties.indicate
-            )
-        ){
-
-            continue;
-        }
-
-
-        try{
-
-            await characteristic.stopNotifications();
-
-        }catch(error){
-
-            log(
-                "Stop notification error for " +
-                characteristic.uuid +
-                ": " +
-                error.message
-            );
-
-        }
-
-
-        characteristic.removeEventListener(
-            "characteristicvaluechanged",
-            handleNotification
-        );
-
-    }
-
-
-    notificationsRunning = false;
-
-
-    $("notificationProgress").style.width =
-        "0%";
-
-
-    $("notificationNotice").className =
-        "notice";
-
-
-    $("notificationNotice").textContent =
-        "Notification monitoring stopped.";
-
-
-    log(
-        "Notification monitoring stopped."
-    );
-
-
-    refreshReport();
-
-}
-
-
-/* =========================================================
-   ADVERTISEMENT MONITORING
-   ========================================================= */
-
-async function startAdvertisementMonitoring(){
-
-    if(!bluetoothDevice){
-
-        $("advertisementNotice").className =
-            "notice warning";
-
-
-        $("advertisementNotice").innerHTML =
-            "<strong>Select the GT2 first.</strong> " +
-            "Advertisement monitoring requires a selected Bluetooth device.";
-
-
-        log(
-            "Advertisement monitoring requested before selecting a device."
-        );
-
-        return;
-    }
-
-
+function disconnect(){
     if(
-        typeof BluetoothDevice === "undefined" ||
-        !("watchAdvertisements" in BluetoothDevice.prototype)
+        state.device &&
+        state.device.gatt &&
+        state.device.gatt.connected
     ){
-
-        $("advertisementNotice").className =
-            "notice warning";
-
-
-        $("advertisementNotice").innerHTML =
-            "<strong>This browser does not expose advertisement monitoring.</strong> " +
-            "The GT2 can still be investigated through GATT.";
-
-
-        log(
-            "Advertisement monitoring is not exposed by this browser."
-        );
-
-        return;
+        state.device.gatt.disconnect();
+        log("Disconnect requested.");
+    }else{
+        handleDisconnect();
     }
-
-
-    try{
-
-        bluetoothDevice.removeEventListener(
-            "advertisementreceived",
-            handleAdvertisement
-        );
-
-
-        bluetoothDevice.addEventListener(
-            "advertisementreceived",
-            handleAdvertisement
-        );
-
-
-        await bluetoothDevice.watchAdvertisements();
-
-
-        advertisementRunning = true;
-
-
-        $("advertisementNotice").className =
-            "notice good";
-
-
-        $("advertisementNotice").innerHTML =
-            "<strong>Advertisement monitoring active.</strong> " +
-            "Waiting for packets.";
-
-
-        log(
-            "Advertisement monitoring started."
-        );
-
-
-    }catch(error){
-
-        advertisementRunning = false;
-
-
-        $("advertisementNotice").className =
-            "notice error";
-
-
-        $("advertisementNotice").textContent =
-            error.name +
-            ": " +
-            error.message;
-
-
-        log(
-            "Advertisement monitoring failed: " +
-            error.name +
-            ": " +
-            error.message
-        );
-
-    }
-
 }
 
+function generateReport(){
+    const lines = [];
 
-/* =========================================================
-   ADVERTISEMENT HANDLER
-   ========================================================= */
+    lines.push("TRUEFREE WATCH GT2 DISCOVERY LAB");
+    lines.push("================================");
+    lines.push("");
 
-function handleAdvertisement(event){
+    lines.push("Device");
+    lines.push("--------------------------------");
+    lines.push(`Name: ${state.device?.name || "Not connected"}`);
+    lines.push(`Browser ID: ${state.device?.id || "Unknown"}`);
+    lines.push(`Known MAC: 45:41:44:6B:77:01`);
+    lines.push(`Firmware: AP0.1B2.2R1.2`);
+    lines.push(`BK Version: 8.4`);
+    lines.push("");
 
-    const record = {
-
-        time:
-            new Date().toLocaleTimeString(),
-
-        name:
-            event.name || "",
-
-        uuids:
-            Array.from(event.uuids || []),
-
-        rssi:
-            typeof event.rssi === "number"
-                ? event.rssi
-                : null,
-
-        txPower:
-            typeof event.txPower === "number"
-                ? event.txPower
-                : null,
-
-        appearance:
-            typeof event.appearance === "number"
-                ? event.appearance
-                : null,
-
-        manufacturerData: [],
-
-        serviceData: []
-
-    };
-
-
-    if(event.manufacturerData){
-
-        event.manufacturerData.forEach(
-            function(value,key){
-
-                record.manufacturerData.push({
-
-                    key: key,
-
-                    value:
-                        dataViewToHex(value)
-
-                });
-
-            }
-        );
-
-    }
-
-
-    if(event.serviceData){
-
-        event.serviceData.forEach(
-            function(value,key){
-
-                record.serviceData.push({
-
-                    key: key,
-
-                    value:
-                        dataViewToHex(value)
-
-                });
-
-            }
-        );
-
-    }
-
-
-    advertisements.push(record);
-
-
-    renderAdvertisements();
-
-
-    log(
-        "Advertisement received. " +
-        "UUIDs: " +
-        (
-            record.uuids.length
-                ? record.uuids.join(", ")
-                : "none exposed"
-        )
+    lines.push("Connection");
+    lines.push("--------------------------------");
+    lines.push(`Connected: ${!!state.server?.connected}`);
+    lines.push(
+        `Connected At: ${
+            state.connectedAt
+            ? state.connectedAt.toISOString()
+            : "Unknown"
+        }`
     );
+    lines.push("");
 
+    lines.push("GATT Summary");
+    lines.push("--------------------------------");
+    lines.push(`Services: ${state.services.length}`);
+    lines.push(`Characteristics: ${state.characteristics.length}`);
+    lines.push(`Descriptors: ${state.descriptors.length}`);
+    lines.push(`Successful Reads: ${state.reads}`);
+    lines.push(`Failed Reads: ${state.readFailures}`);
+    lines.push(`Notifications/Indications: ${state.packets}`);
+    lines.push("");
 
-    record.uuids.forEach(function(uuid){
+    lines.push("Services");
+    lines.push("--------------------------------");
 
-        const exists =
-            requestedServices.some(function(item){
+    state.services.forEach(service => {
+        lines.push(`SERVICE ${service.uuid}`);
 
-                return normaliseUUID(item) ===
-                    normaliseUUID(uuid);
+        service.characteristics.forEach(characteristic => {
+            lines.push(
+                `  CHARACTERISTIC ${characteristic.uuid}`
+            );
 
-            });
+            lines.push(
+                `    Properties: ${getProperties(characteristic).join(", ")}`
+            );
 
-
-        if(!exists){
-
-            addUUID(uuid);
-
-        }
-
-    });
-
-
-    refreshReport();
-
-}
-
-
-/* =========================================================
-   STOP ADVERTISEMENT MONITORING
-   ========================================================= */
-
-function stopAdvertisementMonitoring(){
-
-    advertisementRunning = false;
-
-
-    if(bluetoothDevice){
-
-        bluetoothDevice.removeEventListener(
-            "advertisementreceived",
-            handleAdvertisement
-        );
-
-    }
-
-
-    $("advertisementNotice").className =
-        "notice";
-
-
-    $("advertisementNotice").textContent =
-        "Advertisement monitoring stopped.";
-
-
-    log(
-        "Advertisement monitoring stopped."
-    );
-
-}
-
-
-/* =========================================================
-   RENDER ADVERTISEMENTS
-   ========================================================= */
-
-function renderAdvertisements(){
-
-    const box =
-        $("advertisementData");
-
-
-    if(!advertisements.length){
-
-        box.innerHTML =
-            '<div class="empty">No advertisement packets captured.</div>';
-
-        return;
-    }
-
-
-    box.innerHTML = "";
-
-
-    advertisements
-        .slice()
-        .reverse()
-        .forEach(function(record){
-
-            const div =
-                document.createElement("div");
-
-
-            div.className =
-                "adBox";
-
-
-            div.textContent =
-                JSON.stringify(
-                    record,
-                    null,
-                    2
+            const descriptors =
+                state.descriptors.filter(
+                    d => d.characteristic === characteristic.uuid
                 );
 
-
-            box.appendChild(div);
-
+            descriptors.forEach(descriptor => {
+                lines.push(
+                    `    Descriptor: ${descriptor.uuid}`
+                );
+            });
         });
 
-}
-
-
-/* =========================================================
-   CLEAR ADVERTISEMENTS
-   ========================================================= */
-
-function clearAdvertisements(){
-
-    advertisements = [];
-
-    renderAdvertisements();
-
-    log(
-        "Advertisement data cleared."
-    );
-
-    refreshReport();
-
-}
-
-
-/* =========================================================
-   RENDER GATT DATABASE
-   ========================================================= */
-
-function renderGATT(){
-
-    const box =
-        $("gattServices");
-
-
-    if(!services.length){
-
-        box.innerHTML =
-            '<div class="empty">' +
-            'No accessible GATT services.<br><br>' +
-            'If the GT2 is connected but this remains at zero, ' +
-            'the browser may be hiding its proprietary GATT database.' +
-            '</div>';
-
-        return;
-    }
-
-
-    box.innerHTML = "";
-
-
-    services.forEach(function(service){
-
-        const serviceBox =
-            document.createElement("div");
-
-
-        serviceBox.className =
-            "service";
-
-
-        const serviceCharacteristics =
-            characteristics.filter(function(characteristic){
-
-                return characteristic.service &&
-                    characteristic.service.uuid ===
-                    service.uuid;
-
-            });
-
-
-        const header =
-            document.createElement("div");
-
-
-        header.className =
-            "serviceHeader";
-
-
-        header.innerHTML =
-            "<div>" +
-                "<div class=\"serviceName\">" +
-                    escapeHTML(service.uuid) +
-                "</div>" +
-
-                "<div class=\"serviceUuid\">" +
-                    "Primary service" +
-                "</div>" +
-            "</div>" +
-
-            "<span class=\"tag\">" +
-                serviceCharacteristics.length +
-                " characteristic(s)" +
-            "</span>";
-
-
-        serviceBox.appendChild(header);
-
-
-        if(!serviceCharacteristics.length){
-
-            const empty =
-                document.createElement("div");
-
-
-            empty.className =
-                "empty";
-
-
-            empty.textContent =
-                "No accessible characteristics.";
-
-
-            serviceBox.appendChild(empty);
-
-        }
-
-
-        serviceCharacteristics.forEach(
-            function(characteristic){
-
-                const charBox =
-                    document.createElement("div");
-
-
-                charBox.className =
-                    "characteristic";
-
-
-                const properties =
-                    characteristic.properties ||
-                    {};
-
-
-                const propertyList = [];
-
-
-                if(properties.broadcast)
-                    propertyList.push(
-                        '<span class="property">broadcast</span>'
-                    );
-
-                if(properties.read)
-                    propertyList.push(
-                        '<span class="property read">read</span>'
-                    );
-
-                if(properties.writeWithoutResponse)
-                    propertyList.push(
-                        '<span class="property writeNR">write without response</span>'
-                    );
-
-                if(properties.write)
-                    propertyList.push(
-                        '<span class="property write">write</span>'
-                    );
-
-                if(properties.notify)
-                    propertyList.push(
-                        '<span class="property notify">notify</span>'
-                    );
-
-                if(properties.indicate)
-                    propertyList.push(
-                        '<span class="property indicate">indicate</span>'
-                    );
-
-
-                let html =
-                    "<div class=\"charHeader\">" +
-
-                        "<div>" +
-                            "<div class=\"charUuid\">" +
-                                escapeHTML(
-                                    characteristic.uuid
-                                ) +
-                            "</div>" +
-                        "</div>" +
-
-                        "<div class=\"properties\">" +
-                            (
-                                propertyList.length
-                                    ? propertyList.join("")
-                                    : '<span class="property">none</span>'
-                            ) +
-                        "</div>" +
-
-                    "</div>";
-
-
-                if(characteristic._lastValue){
-
-                    html +=
-                        "<div class=\"charData\">" +
-
-                            "<div class=\"dataLabel\">" +
-                                "Last read — HEX" +
-                            "</div>" +
-
-                            "<div class=\"dataValue\">" +
-                                escapeHTML(
-                                    characteristic._lastValue
-                                ) +
-                            "</div>" +
-
-                            "<div class=\"dataLabel\" style=\"margin-top:8px\">" +
-                                "Last read — ASCII" +
-                            "</div>" +
-
-                            "<div class=\"dataValue\">" +
-                                escapeHTML(
-                                    characteristic._lastASCII || ""
-                                ) +
-                            "</div>" +
-
-                        "</div>";
-
-                }
-
-
-                if(characteristic._lastNotification){
-
-                    html +=
-                        "<div class=\"charData\">" +
-
-                            "<div class=\"dataLabel\">" +
-                                "Last notification — HEX" +
-                            "</div>" +
-
-                            "<div class=\"dataValue\">" +
-                                escapeHTML(
-                                    characteristic._lastNotification
-                                ) +
-                            "</div>" +
-
-                            "<div class=\"dataLabel\" style=\"margin-top:8px\">" +
-                                "Last notification — ASCII" +
-                            "</div>" +
-
-                            "<div class=\"dataValue\">" +
-                                escapeHTML(
-                                    characteristic._lastNotificationASCII || ""
-                                ) +
-                            "</div>" +
-
-                        "</div>";
-
-                }
-
-
-                if(
-                    characteristic._descriptors &&
-                    characteristic._descriptors.length
-                ){
-
-                    html +=
-                        "<div class=\"charData\">" +
-
-                            "<div class=\"dataLabel\">" +
-                                "Descriptors" +
-                            "</div>";
-
-
-                    characteristic._descriptors.forEach(
-                        function(descriptor){
-
-                            html +=
-                                "<div class=\"descriptor\">" +
-
-                                    "<div class=\"descriptorUuid\">" +
-                                        escapeHTML(
-                                            descriptor.uuid
-                                        ) +
-                                    "</div>" +
-
-                                "</div>";
-
-                        }
-                    );
-
-
-                    html +=
-                        "</div>";
-
-                }
-
-
-                charBox.innerHTML =
-                    html;
-
-
-                serviceBox.appendChild(
-                    charBox
-                );
-
-            }
-        );
-
-
-        box.appendChild(
-            serviceBox
-        );
-
+        lines.push("");
     });
 
-}
+    lines.push("Captured Notification / Indication Packets");
+    lines.push("--------------------------------");
 
-
-/* =========================================================
-   REPORT
-   ========================================================= */
-
-function buildReport(){
-
-    const connected =
-        !!(
-            bluetoothDevice &&
-            bluetoothDevice.gatt &&
-            bluetoothDevice.gatt.connected
-        );
-
-
-    const serviceText =
-        services.length
-            ? services.map(function(service){
-
-                const chars =
-                    characteristics.filter(
-                        function(characteristic){
-
-                            return characteristic.service &&
-                                characteristic.service.uuid ===
-                                service.uuid;
-
-                        }
-                    );
-
-
-                let output =
-                    "SERVICE: " +
-                    service.uuid +
-                    "\n";
-
-
-                chars.forEach(function(characteristic){
-
-                    const properties =
-                        characteristic.properties ||
-                        {};
-
-
-                    const p = [];
-
-
-                    if(properties.read)
-                        p.push("READ");
-
-                    if(properties.write)
-                        p.push("WRITE");
-
-                    if(properties.writeWithoutResponse)
-                        p.push(
-                            "WRITE_WITHOUT_RESPONSE"
-                        );
-
-                    if(properties.notify)
-                        p.push("NOTIFY");
-
-                    if(properties.indicate)
-                        p.push("INDICATE");
-
-
-                    output +=
-                        "  CHARACTERISTIC: " +
-                        characteristic.uuid +
-                        "\n";
-
-
-                    output +=
-                        "    PROPERTIES: " +
-                        (
-                            p.join(", ") ||
-                            "NONE"
-                        ) +
-                        "\n";
-
-
-                    if(
-                        characteristic._descriptors &&
-                        characteristic._descriptors.length
-                    ){
-
-                        characteristic._descriptors
-                            .forEach(function(descriptor){
-
-                                output +=
-                                    "    DESCRIPTOR: " +
-                                    descriptor.uuid +
-                                    "\n";
-
-                            });
-
-                    }
-
-
-                    if(characteristic._lastValue){
-
-                        output +=
-                            "    LAST READ HEX: " +
-                            characteristic._lastValue +
-                            "\n";
-
-                        output +=
-                            "    LAST READ ASCII: " +
-                            (
-                                characteristic._lastASCII ||
-                                ""
-                            ) +
-                            "\n";
-
-                    }
-
-
-                    if(characteristic._lastNotification){
-
-                        output +=
-                            "    LAST NOTIFICATION HEX: " +
-                            characteristic._lastNotification +
-                            "\n";
-
-                        output +=
-                            "    LAST NOTIFICATION ASCII: " +
-                            (
-                                characteristic._lastNotificationASCII ||
-                                ""
-                            ) +
-                            "\n";
-
-                    }
-
-                });
-
-
-                return output;
-
-            }).join("\n")
-            : "NO ACCESSIBLE SERVICES";
-
-
-    return [
-        "TRUEFREE GT2 DISCOVERY LAB",
-        "==========================",
-        "",
-        "KNOWN WATCH INFORMATION",
-        "Model: " + WATCH.model,
-        "Software: " + WATCH.software,
-        "BK Version: " + WATCH.bk,
-        "Serial: " + WATCH.serial,
-        "Known MAC: " + WATCH.mac,
-        "",
-        "BROWSER DEVICE",
-        "Name: " + (
-            bluetoothDevice
-                ? bluetoothDevice.name || "Unnamed"
-                : "Not selected"
-        ),
-        "Browser ID: " + (
-            bluetoothDevice
-                ? bluetoothDevice.id || "Unavailable"
-                : "Not selected"
-        ),
-        "GATT connected: " + connected,
-        "",
-        "GATT SUMMARY",
-        "Services: " + services.length,
-        "Characteristics: " + characteristics.length,
-        "Descriptors: " + descriptors.length,
-        "Notifications captured: " + notificationCount,
-        "",
-        "REQUESTED SERVICE UUIDS",
-        requestedServices.join("\n"),
-        "",
-        "GATT DATABASE",
-        serviceText,
-        "",
-        "ADVERTISEMENT PACKETS",
-        String(advertisements.length),
-        "",
-        JSON.stringify(
-            advertisements,
-            null,
-            2
-        ),
-        "",
-        "IMPORTANT",
-        "This report describes what the browser exposed.",
-        "Zero accessible services does NOT prove that the physical watch has zero GATT services.",
-        "No firmware writes or OTA commands were sent."
-    ].join("\n");
-
-}
-
-
-/* =========================================================
-   REFRESH REPORT
-   ========================================================= */
-
-function refreshReport(){
-
-    const box =
-        $("reportBox");
-
-
-    if(!box){
-        return;
+    if(!state.notifications.length){
+        lines.push("None captured.");
+    }else{
+        state.notifications.forEach((packet,index) => {
+            lines.push(
+                `#${index + 1} ${packet.time}`
+            );
+            lines.push(
+                `Characteristic: ${packet.characteristic}`
+            );
+            lines.push(`HEX: ${packet.hex}`);
+            lines.push(`ASCII: ${packet.ascii}`);
+            lines.push("");
+        });
     }
 
+    lines.push("Activity Log");
+    lines.push("--------------------------------");
 
-    box.textContent =
-        buildReport();
+    state.logs.forEach(entry => {
+        lines.push(
+            `[${entry.time}] ${entry.type.toUpperCase()}: ${entry.message}`
+        );
+    });
 
+    lines.push("");
+    lines.push("Safety");
+    lines.push("--------------------------------");
+    lines.push("No characteristic writes were performed by this laboratory.");
+    lines.push("No firmware upload was performed.");
+    lines.push("No OTA/bootloader/erase/reboot operation was performed.");
+
+    $("report").textContent = lines.join("\n");
+
+    log("Diagnostic report generated.", "good");
 }
-
-
-/* =========================================================
-   COPY REPORT
-   ========================================================= */
 
 async function copyReport(){
+    const text = $("report").textContent;
 
-    const report =
-        buildReport();
-
-
-    try{
-
-        await navigator.clipboard.writeText(
-            report
-        );
-
-
-        $("copyReportBtn").textContent =
-            "Copied!";
-
-
-        setTimeout(function(){
-
-            $("copyReportBtn").textContent =
-                "Copy Report";
-
-        },1500);
-
-
-        log(
-            "Diagnostic report copied to clipboard."
-        );
-
-
-    }catch(error){
-
-        log(
-            "Clipboard copy failed: " +
-            error.message
-        );
-
-
-        alert(
-            "The browser did not allow clipboard access."
-        );
-
+    if(!text || text === "No report generated yet."){
+        generateReport();
     }
 
-}
-
-
-/* =========================================================
-   DOWNLOAD REPORT
-   ========================================================= */
-
-function downloadReport(){
-
-    const blob =
-        new Blob(
-            [
-                buildReport()
-            ],
-            {
-                type:"text/plain"
-            }
+    try{
+        await navigator.clipboard.writeText(
+            $("report").textContent
         );
 
+        log("Diagnostic report copied to clipboard.", "good");
 
-    const url =
-        URL.createObjectURL(blob);
-
-
-    const a =
-        document.createElement("a");
-
-
-    a.href =
-        url;
-
-
-    a.download =
-        "TRUEFREE_GT2_Discovery_Report.txt";
-
-
-    document.body.appendChild(a);
-
-
-    a.click();
-
-
-    a.remove();
-
-
-    URL.revokeObjectURL(url);
-
-
-    log(
-        "Diagnostic report downloaded."
-    );
-
-}
-
-
-/* =========================================================
-   CLEAR LOG
-   ========================================================= */
-
-function clearLog(){
-
-    $("log").innerHTML = "";
-
-    log(
-        "Activity log cleared."
-    );
-
-}
-
-
-/* =========================================================
-   SAFE BUTTON BINDING
-   ========================================================= */
-
-function bindButton(id, handler){
-
-    const button =
-        $(id);
-
-
-    if(!button){
-
-        console.error(
-            "Button not found:",
-            id
+    }catch(error){
+        log(
+            `Could not copy report: ${error.message}`,
+            "error"
         );
+    }
+}
 
+function clearData(){
+    state.reads = 0;
+    state.readFailures = 0;
+    state.packets = 0;
+    state.notifications = [];
+    state.logs = [];
+
+    $("packetContainer").innerHTML =
+        '<div class="empty">No notification packets captured.</div>';
+
+    $("activityLog").innerHTML =
+        '<div class="log-row">' +
+        '<span class="log-time">[cleared]</span> ' +
+        '<span class="log-info">Diagnostic data cleared.</span>' +
+        '</div>';
+
+    $("report").textContent =
+        "No report generated yet.";
+
+    updateStats();
+
+    log("Diagnostic counters and captured packets cleared.");
+}
+
+function addCustomUuid(){
+    const value = normalizeUuid($("customUuid").value);
+
+    if(!value){
         return;
     }
 
+    /*
+       Basic UUID validation.
+    */
 
-    button.addEventListener(
+    const valid =
+        /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i
+            .test(value);
+
+    if(!valid){
+        alert("Please enter a complete 128-bit UUID.");
+        return;
+    }
+
+    if(!state.requestedUuids.includes(value)){
+        state.requestedUuids.push(value);
+        log(`Added optional service UUID ${value}`, "good");
+    }else{
+        log(`UUID already requested: ${value}`, "warn");
+    }
+
+    $("customUuid").value = "";
+}
+
+function bindEvents(){
+    $("connectBtn").addEventListener(
         "click",
-        function(event){
+        event => {
+            event.preventDefault();
+            event.stopPropagation();
+            discover();
+        }
+    );
 
+    $("disconnectBtn").addEventListener(
+        "click",
+        event => {
+            event.preventDefault();
+            event.stopPropagation();
+            disconnect();
+        }
+    );
+
+    $("reportBtn").addEventListener(
+        "click",
+        event => {
+            event.preventDefault();
+            event.stopPropagation();
+            generateReport();
+        }
+    );
+
+    $("copyReportBtn").addEventListener(
+        "click",
+        event => {
+            event.preventDefault();
+            event.stopPropagation();
+            copyReport();
+        }
+    );
+
+    $("clearBtn").addEventListener(
+        "click",
+        event => {
+            event.preventDefault();
+            event.stopPropagation();
+            clearData();
+        }
+    );
+
+    $("addUuidBtn").addEventListener(
+        "click",
+        event => {
+            event.preventDefault();
+            event.stopPropagation();
+            addCustomUuid();
+        }
+    );
+
+    $("customUuid").addEventListener(
+        "keydown",
+        event => {
+            if(event.key === "Enter"){
+                event.preventDefault();
+                addCustomUuid();
+            }
+        }
+    );
+
+    document.querySelectorAll("[data-uuid]").forEach(button => {
+        button.addEventListener("click", event => {
             event.preventDefault();
             event.stopPropagation();
 
+            const uuid = button.dataset.uuid;
 
-            try{
-
-                const result =
-                    handler(event);
-
-
-                if(
-                    result &&
-                    typeof result.catch === "function"
-                ){
-
-                    result.catch(function(error){
-
-                        log(
-                            "Button error: " +
-                            error.message
-                        );
-
-                    });
-
-                }
-
-            }catch(error){
-
-                log(
-                    "Button error: " +
-                    error.message
-                );
-
+            if(!state.requestedUuids.includes(uuid)){
+                state.requestedUuids.push(uuid);
             }
 
-        }
-    );
+            $("customUuid").value = uuid;
 
+            log(
+                `Selected known GT2 UUID ${uuid}`,
+                "good"
+            );
+        });
+    });
+
+    document.querySelectorAll("[data-toggle]").forEach(head => {
+        head.addEventListener("click", event => {
+            if(
+                event.target.closest("button") ||
+                event.target.closest("input")
+            ){
+                return;
+            }
+
+            const id = head.dataset.toggle;
+            const element = $(id);
+
+            if(element){
+                element.classList.toggle("open");
+            }
+        });
+    });
 }
 
+document.addEventListener("DOMContentLoaded", () => {
+    bindEvents();
+    updateStats();
 
-/* =========================================================
-   INITIALISE
-   ========================================================= */
+    if(!navigator.bluetooth){
+        log(
+            "Web Bluetooth API is not available in this browser.",
+            "error"
+        );
 
-function initialise(){
+        $("connectBtn").disabled = true;
+    }else{
+        log(
+            "Web Bluetooth API detected.",
+            "good"
+        );
 
-    if(initialized){
-        return;
+        log(
+            "Known GT2 services 0x8800 and 0x9900 will be requested.",
+            "good"
+        );
     }
-
-    initialized = true;
-
-
-    try{
-
-        checkCapabilities();
-
-        renderUUIDList();
-
-        renderAdvertisements();
-
-        renderGATT();
-
-        updateDeviceUI();
-
-        refreshReport();
-
-
-        bindButton(
-            "connectBtn",
-            connectGT2
-        );
-
-
-        bindButton(
-            "disconnectBtn",
-            disconnectGT2
-        );
-
-
-        bindButton(
-            "addUuidBtn",
-            function(){
-
-                const input =
-                    $("customUuid");
-
-
-                addUUID(
-                    input.value
-                );
-
-
-                input.value = "";
-
-                input.focus();
-
-            }
-        );
-
-
-        document
-            .querySelectorAll(".uuidBtn")
-            .forEach(function(button){
-
-                button.addEventListener(
-                    "click",
-                    function(event){
-
-                        event.preventDefault();
-                        event.stopPropagation();
-
-
-                        addUUID(
-                            button.dataset.uuid
-                        );
-
-                    }
-                );
-
-            });
-
-
-        bindButton(
-            "readAllBtn",
-            readAllCharacteristics
-        );
-
-
-        bindButton(
-            "startNotificationsBtn",
-            startNotifications
-        );
-
-
-        bindButton(
-            "stopNotificationsBtn",
-            stopNotifications
-        );
-
-
-        bindButton(
-            "startAdvertisementBtn",
-            startAdvertisementMonitoring
-        );
-
-
-        bindButton(
-            "stopAdvertisementBtn",
-            stopAdvertisementMonitoring
-        );
-
-
-        bindButton(
-            "clearAdvertisementBtn",
-            clearAdvertisements
-        );
-
-
-        bindButton(
-            "refreshReportBtn",
-            refreshReport
-        );
-
-
-        bindButton(
-            "copyReportBtn",
-            copyReport
-        );
-
-
-        bindButton(
-            "downloadReportBtn",
-            downloadReport
-        );
-
-
-        bindButton(
-            "clearLogBtn",
-            clearLog
-        );
-
-
-        $("customUuid").addEventListener(
-            "keydown",
-            function(event){
-
-                if(event.key === "Enter"){
-
-                    event.preventDefault();
-
-                    $("addUuidBtn").click();
-
-                }
-
-            }
-        );
-
-
-        log(
-            "TRUEFREE GT2 Discovery Lab started."
-        );
-
-
-        log(
-            "Read-only mode enabled."
-        );
-
-
-        log(
-            "No firmware or OTA writes will be performed."
-        );
-
-
-        log(
-            "Known software: " +
-            WATCH.software
-        );
-
-
-        log(
-            "Known BK version: " +
-            WATCH.bk
-        );
-
-
-        log(
-            "Ready to connect to the GT2."
-        );
-
-
-    }catch(error){
-
-        console.error(
-            error
-        );
-
-
-        const logBox =
-            $("log");
-
-
-        if(logBox){
-
-            logBox.textContent =
-                "[STARTUP ERROR] " +
-                error.name +
-                ": " +
-                error.message;
-
-        }
-
-
-        alert(
-            "Discovery Lab startup error:\n\n" +
-            error.message
-        );
-
-    }
-
-}
-
-
-/* =========================================================
-   STARTUP
-   ========================================================= */
-
-if(
-    document.readyState === "loading"
-){
-
-    document.addEventListener(
-        "DOMContentLoaded",
-        initialise,
-        {
-            once:true
-        }
-    );
-
-}else{
-
-    initialise();
-
-}
-
+});
 </script>
 
 </body>
