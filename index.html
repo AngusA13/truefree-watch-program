@@ -9,16 +9,16 @@
 <style>
 :root {
     --bg:#070910;
-    --panel:rgba(17,21,32,.88);
-    --panel2:rgba(24,29,43,.9);
+    --panel:rgba(17,21,32,.9);
+    --panel2:rgba(23,29,43,.92);
     --border:rgba(255,255,255,.09);
-    --text:#f5f7fc;
-    --muted:#8d97ab;
+    --text:#f4f7fc;
+    --muted:#8c96aa;
     --blue:#6d9cff;
-    --green:#48e19a;
+    --green:#49e19b;
     --yellow:#ffd66e;
     --red:#ff667f;
-    --cyan:#67dfff;
+    --cyan:#65dcff;
 }
 
 * {
@@ -29,8 +29,8 @@ html,body {
     margin:0;
     min-height:100%;
     background:
-        radial-gradient(circle at 15% 0%,rgba(80,120,255,.16),transparent 30%),
-        radial-gradient(circle at 90% 90%,rgba(0,220,180,.08),transparent 30%),
+        radial-gradient(circle at 12% 0%,rgba(80,120,255,.16),transparent 31%),
+        radial-gradient(circle at 88% 92%,rgba(0,220,180,.08),transparent 30%),
         var(--bg);
     color:var(--text);
     font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
@@ -49,7 +49,7 @@ button {
 }
 
 .app {
-    max-width:1280px;
+    max-width:1300px;
     margin:auto;
 }
 
@@ -70,13 +70,13 @@ header {
 .watchIcon {
     width:58px;
     height:58px;
-    border-radius:18px;
     display:grid;
     place-items:center;
+    border-radius:18px;
     font-size:29px;
-    background:linear-gradient(145deg,#252d42,#0c1019);
+    background:linear-gradient(145deg,#252d42,#0b0f18);
     border:1px solid var(--border);
-    box-shadow:0 20px 50px rgba(0,0,0,.35);
+    box-shadow:0 20px 55px rgba(0,0,0,.35);
 }
 
 h1 {
@@ -113,7 +113,7 @@ h1 {
 
 .dot.connected {
     background:var(--green);
-    box-shadow:0 0 14px rgba(72,225,154,.7);
+    box-shadow:0 0 14px rgba(73,225,155,.65);
 }
 
 .grid {
@@ -161,7 +161,7 @@ h1 {
     padding:13px 15px;
     border:0;
     border-radius:13px;
-    color:#fff;
+    color:white;
     font-weight:700;
     background:linear-gradient(135deg,#4d8cff,#7167ff);
     box-shadow:0 12px 30px rgba(70,115,255,.25);
@@ -214,12 +214,19 @@ h1 {
 }
 
 .value {
-    font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+    font:12px ui-monospace,SFMono-Regular,Menlo,monospace;
     overflow-wrap:anywhere;
 }
 
-.value.highlight {
-    color:#a8c5ff;
+.goodBox {
+    margin-top:15px;
+    padding:12px;
+    border-radius:12px;
+    border:1px solid rgba(73,225,155,.18);
+    background:rgba(73,225,155,.045);
+    color:#9be9c5;
+    font-size:12px;
+    line-height:1.55;
 }
 
 .warning {
@@ -227,21 +234,35 @@ h1 {
     padding:12px;
     border-radius:12px;
     border:1px solid rgba(255,214,110,.18);
-    background:rgba(255,214,110,.055);
-    color:#eadca9;
+    background:rgba(255,214,110,.05);
+    color:#e9dca9;
     font-size:12px;
     line-height:1.55;
 }
 
-.goodBox {
-    margin-top:15px;
-    padding:12px;
-    border-radius:12px;
-    border:1px solid rgba(72,225,154,.17);
-    background:rgba(72,225,154,.045);
-    color:#9be9c5;
-    font-size:12px;
-    line-height:1.55;
+.fingerprint {
+    display:grid;
+    gap:7px;
+}
+
+.fingerprintRow {
+    display:grid;
+    grid-template-columns:1fr auto;
+    gap:10px;
+    padding:9px;
+    border-radius:9px;
+    background:rgba(255,255,255,.035);
+}
+
+.fingerprintRow span:first-child {
+    color:var(--muted);
+}
+
+.fingerprintRow span:last-child {
+    color:#d0d9e9;
+    font:10px ui-monospace,monospace;
+    text-align:right;
+    word-break:break-all;
 }
 
 .sectionTitle {
@@ -266,8 +287,7 @@ h1 {
     outline:none;
     background:#0a0e16;
     color:var(--text);
-    font-family:ui-monospace,monospace;
-    font-size:11px;
+    font:11px ui-monospace,monospace;
 }
 
 .uuidInput input:focus {
@@ -315,9 +335,33 @@ h1 {
     word-break:break-all;
 }
 
+.advertisement {
+    display:grid;
+    gap:8px;
+}
+
+.advBox {
+    padding:10px;
+    border-radius:10px;
+    background:rgba(255,255,255,.035);
+    border:1px solid rgba(255,255,255,.055);
+}
+
+.advLabel {
+    color:var(--muted);
+    font-size:10px;
+    margin-bottom:5px;
+}
+
+.advValue {
+    color:#cdd7e8;
+    font:10px ui-monospace,monospace;
+    word-break:break-all;
+    white-space:pre-wrap;
+}
+
 .serviceList {
     display:grid;
-    gap:10px;
 }
 
 .empty {
@@ -375,11 +419,6 @@ h1 {
     color:#a8c6ff;
 }
 
-.badge.green {
-    background:rgba(72,225,154,.1);
-    color:#8fe8bc;
-}
-
 .chars {
     padding:10px;
     display:grid;
@@ -391,12 +430,6 @@ h1 {
     border-radius:11px;
     border:1px solid rgba(255,255,255,.06);
     background:rgba(0,0,0,.12);
-}
-
-.charTop {
-    display:flex;
-    justify-content:space-between;
-    gap:10px;
 }
 
 .charUuid {
@@ -421,7 +454,7 @@ h1 {
 }
 
 .prop.notify {
-    background:rgba(72,225,154,.08);
+    background:rgba(73,225,155,.08);
     color:#8ce8bb;
 }
 
@@ -451,8 +484,8 @@ h1 {
 }
 
 .charButtons button.active {
-    border-color:rgba(72,225,154,.35);
-    background:rgba(72,225,154,.1);
+    border-color:rgba(73,225,155,.35);
+    background:rgba(73,225,155,.1);
     color:#8fe8bc;
 }
 
@@ -471,7 +504,7 @@ h1 {
 }
 
 .logs {
-    max-height:430px;
+    max-height:450px;
     overflow:auto;
     padding:13px;
     font:11px ui-monospace,monospace;
@@ -519,8 +552,8 @@ h1 {
 }
 
 .capture button.active {
-    border-color:rgba(72,225,154,.3);
-    background:rgba(72,225,154,.1);
+    border-color:rgba(73,225,155,.3);
+    background:rgba(73,225,155,.1);
     color:#8fe8bc;
 }
 
@@ -529,29 +562,6 @@ h1 {
     color:var(--muted);
     font-size:11px;
     line-height:1.6;
-}
-
-.fingerprint {
-    display:grid;
-    gap:7px;
-}
-
-.fingerprintRow {
-    display:grid;
-    grid-template-columns:1fr auto;
-    gap:10px;
-    padding:9px;
-    border-radius:9px;
-    background:rgba(255,255,255,.035);
-}
-
-.fingerprintRow span:first-child {
-    color:var(--muted);
-}
-
-.fingerprintRow span:last-child {
-    font-family:ui-monospace,monospace;
-    color:#cfd8e8;
 }
 
 @media(max-width:880px) {
@@ -589,7 +599,7 @@ h1 {
         <div>
             <h1>TRUEFREE GT2 Firmware Lab</h1>
             <div class="subtitle">
-                Bluetooth diagnostics • GATT inspection • OTA research
+                BLE advertisement • GATT • OTA research
             </div>
         </div>
 
@@ -607,15 +617,13 @@ h1 {
 
 <div>
 
-    <!-- WATCH FINGERPRINT -->
+    <!-- FINGERPRINT -->
 
     <div class="card">
 
         <div class="cardHeader">
             <h2>GT2 Fingerprint</h2>
-            <p>
-                Hardware/software information recorded from your watch.
-            </p>
+            <p>Information from your actual watch.</p>
         </div>
 
         <div class="cardBody">
@@ -660,9 +668,7 @@ h1 {
 
         <div class="cardHeader">
             <h2>Bluetooth Connection</h2>
-            <p>
-                Connect directly to the GT2's BLE GATT server.
-            </p>
+            <p>Connect to the GT2 and inspect its BLE interface.</p>
         </div>
 
         <div class="cardBody">
@@ -700,9 +706,62 @@ h1 {
             </div>
 
             <div class="goodBox">
-                <b>Read-only mode</b><br>
-                This explorer will not send firmware commands or write data
-                to the watch. We are identifying the GT2 protocol first.
+                <b>Read-only research mode</b><br>
+                No firmware commands or arbitrary writes are sent to the watch.
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ADVERTISEMENT SCANNER -->
+
+    <div class="card">
+
+        <div class="cardHeader">
+
+            <h2>BLE Advertisement Scanner</h2>
+
+            <p>
+                Attempts to read the GT2's advertised service UUIDs and
+                manufacturer/service data.
+            </p>
+
+        </div>
+
+        <div class="cardBody">
+
+            <button id="advertiseBtn" class="primary">
+                Start Advertisement Scan
+            </button>
+
+            <div class="note">
+                This requires browser support for Web Bluetooth
+                advertisement monitoring. If supported, this is the most
+                useful next step because it may reveal the proprietary
+                GT2 service UUID.
+            </div>
+
+            <div
+                id="advertisement"
+                class="advertisement"
+                style="margin-top:14px;"
+            >
+
+                <div class="advBox">
+                    <div class="advLabel">
+                        Status
+                    </div>
+
+                    <div
+                        id="advStatus"
+                        class="advValue"
+                    >
+                        Waiting for scan...
+                    </div>
+                </div>
+
             </div>
 
         </div>
@@ -715,10 +774,13 @@ h1 {
     <div class="card">
 
         <div class="cardHeader">
-            <h2>GATT Service Access</h2>
+
+            <h2>Known Service Access</h2>
+
             <p>
-                Add service UUIDs if the GT2 uses proprietary services.
+                Add a service UUID if the advertisement scanner reveals one.
             </p>
+
         </div>
 
         <div class="cardBody">
@@ -796,10 +858,14 @@ h1 {
     <div class="card">
 
         <div class="cardHeader">
-            <h2>BLE Capture</h2>
+
+            <h2>Notification Capture</h2>
+
             <p>
-                Monitor notification packets while interacting with the watch.
+                Capture notification packets once GATT characteristics become
+                accessible.
             </p>
+
         </div>
 
         <div class="cardBody">
@@ -817,9 +883,8 @@ h1 {
             </div>
 
             <div class="note">
-                Once notifications are discovered, enable listening and then
-                interact with the watch. For example, open menus, change watch
-                screens, or perform normal actions.
+                This doesn't create GATT services itself. It records traffic
+                from characteristics that the browser can access.
             </div>
 
         </div>
@@ -831,7 +896,47 @@ h1 {
 
 <div>
 
-    <!-- SERVICES -->
+    <!-- ADVERTISEMENT RESULTS -->
+
+    <div class="card">
+
+        <div class="cardHeader">
+
+            <h2>Advertisement Data</h2>
+
+            <p id="advDescription">
+                No advertisement packets captured yet.
+            </p>
+
+        </div>
+
+        <div
+            id="advResults"
+            class="cardBody"
+        >
+
+            <div class="empty" style="min-height:230px;">
+
+                <div>
+
+                    <div class="emptyIcon">
+                        📡
+                    </div>
+
+                    <div>
+                        Advertisement data will appear here.
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- GATT -->
 
     <div class="card">
 
@@ -851,7 +956,9 @@ h1 {
 
                 <div>
 
-                    <div class="emptyIcon">⌚</div>
+                    <div class="emptyIcon">
+                        ⌚
+                    </div>
 
                     <div>
                         Connect your TRUEFREE GT2
@@ -879,7 +986,7 @@ h1 {
             <h2>Activity Log</h2>
 
             <p>
-                Bluetooth and GATT activity.
+                Bluetooth, advertisement and GATT activity.
             </p>
 
         </div>
@@ -898,33 +1005,37 @@ h1 {
 <script>
 "use strict";
 
+
 /* ============================================================
    TRUEFREE GT2 FIRMWARE LAB
-   ------------------------------------------------------------
-   Read-only BLE/GATT research tool.
+   ============================================================
 
-   The tool:
-   - connects to the TRUEFREE GT2
-   - requests standard services
-   - allows additional UUIDs
-   - discovers characteristics
-   - reads readable characteristics
-   - listens to notifications
-   - displays raw HEX/ASCII data
-   - logs BLE activity
+   READ-ONLY
 
-   Firmware writes are intentionally disabled.
+   This tool does NOT:
+   - flash firmware
+   - write firmware
+   - send OTA commands
+   - modify the watch
+
+   It attempts to:
+   - connect to GT2
+   - monitor BLE advertisements
+   - obtain advertised UUIDs
+   - inspect GATT
+   - read readable characteristics
+   - monitor notifications
    ============================================================ */
 
 
 let bluetoothDevice = null;
 let gattServer = null;
 
-let discoveredServices = [];
-
 let captureEnabled = false;
 
 let notificationSubscriptions = [];
+
+let advertisementScanning = false;
 
 const requestedUUIDs = new Set([
     "battery_service",
@@ -937,11 +1048,12 @@ const requestedUUIDs = new Set([
 ]);
 
 
-const $ = id => document.getElementById(id);
+const $ = id =>
+    document.getElementById(id);
 
 
 /* ============================================================
-   LOGGING
+   LOG
    ============================================================ */
 
 function now() {
@@ -949,7 +1061,7 @@ function now() {
 }
 
 
-function log(message, type="info") {
+function log(message,type="info") {
 
     const element =
         document.createElement("div");
@@ -1002,98 +1114,36 @@ function setStatus(connected,text) {
 
 
 /* ============================================================
-   UUID HELPERS
+   HEX / BYTE UTILITIES
    ============================================================ */
 
-function uuidLabel(uuid) {
-
-    const u =
-        uuid.toLowerCase();
-
-    const known = {
-
-        "00001800-0000-1000-8000-00805f9b34fb":
-            "Generic Access",
-
-        "00001801-0000-1000-8000-00805f9b34fb":
-            "Generic Attribute",
-
-        "0000180a-0000-1000-8000-00805f9b34fb":
-            "Device Information",
-
-        "0000180d-0000-1000-8000-00805f9b34fb":
-            "Heart Rate",
-
-        "0000180f-0000-1000-8000-00805f9b34fb":
-            "Battery Service"
-    };
-
-    return known[u] ||
-        "Proprietary / Unknown Service";
-}
-
-
-function propName(name) {
-
-    const map = {
-
-        broadcast:"broadcast",
-
-        read:"read",
-
-        writewithoutresponse:
-            "write-no-response",
-
-        write:"write",
-
-        notify:"notify",
-
-        indicate:"indicate",
-
-        authenticatedsignedwrites:
-            "signed-write",
-
-        extendedproperties:
-            "extended"
-    };
-
-    return map[
-        name.toLowerCase()
-    ] || name;
-}
-
-
-/* ============================================================
-   BYTE HELPERS
-   ============================================================ */
-
-function bytesToHex(buffer) {
+function bufferToHex(buffer) {
 
     const bytes =
         new Uint8Array(buffer);
 
     return Array.from(bytes)
         .map(
-            byte =>
-                byte.toString(16).padStart(2,"0")
+            b =>
+                b.toString(16).padStart(2,"0")
         )
         .join(" ");
 }
 
 
-function bytesToAscii(buffer) {
+function bufferToAscii(buffer) {
 
     const bytes =
         new Uint8Array(buffer);
 
     return Array.from(bytes)
-        .map(byte => {
+        .map(b => {
 
             if (
-                byte >= 32 &&
-                byte <= 126
+                b >= 32 &&
+                b <= 126
             ) {
-                return String.fromCharCode(byte);
+                return String.fromCharCode(b);
             }
 
             return ".";
@@ -1106,10 +1156,10 @@ function bytesToDetails(buffer) {
 
     return (
         "HEX: " +
-        bytesToHex(buffer) +
+        bufferToHex(buffer) +
 
         "\nASCII: " +
-        bytesToAscii(buffer) +
+        bufferToAscii(buffer) +
 
         "\nLength: " +
         buffer.byteLength +
@@ -1118,8 +1168,19 @@ function bytesToDetails(buffer) {
 }
 
 
+function escapeHTML(value) {
+
+    return String(value)
+        .replaceAll("&","&amp;")
+        .replaceAll("<","&lt;")
+        .replaceAll(">","&gt;")
+        .replaceAll('"',"&quot;")
+        .replaceAll("'","&#039;");
+}
+
+
 /* ============================================================
-   SERVICE UUID LIST
+   UUID LIST
    ============================================================ */
 
 function updateUUIDList() {
@@ -1160,7 +1221,7 @@ function addUUID(uuid) {
     updateUUIDList();
 
     log(
-        "Added requested service: " +
+        "Added requested service UUID: " +
         uuid,
         "good"
     );
@@ -1184,7 +1245,9 @@ $("uuidInput").addEventListener(
     "keydown",
     event => {
 
-        if (event.key === "Enter") {
+        if (
+            event.key === "Enter"
+        ) {
 
             addUUID(
                 $("uuidInput").value
@@ -1197,66 +1260,404 @@ $("uuidInput").addEventListener(
 
 
 document
-    .querySelectorAll("[data-uuid]")
-    .forEach(button => {
+.querySelectorAll("[data-uuid]")
+.forEach(button => {
 
-        button.addEventListener(
-            "click",
-            () => {
+    button.addEventListener(
+        "click",
+        () => {
 
-                addUUID(
-                    button.dataset.uuid
-                );
-            }
-        );
-    });
+            addUUID(
+                button.dataset.uuid
+            );
+        }
+    );
+});
 
 
 /* ============================================================
-   CAPTURE
+   ADVERTISEMENT SCANNING
    ============================================================ */
 
-$("captureBtn").addEventListener(
+$("advertiseBtn").addEventListener(
     "click",
-    () => {
+    startAdvertisementScan
+);
 
-        captureEnabled =
-            !captureEnabled;
 
-        $("captureBtn")
-            .classList.toggle(
-                "active",
-                captureEnabled
+async function startAdvertisementScan() {
+
+    if (!bluetoothDevice) {
+
+        log(
+            "Connect to the GT2 first.",
+            "warn"
+        );
+
+        return;
+    }
+
+
+    if (
+        typeof bluetoothDevice.watchAdvertisements !==
+        "function"
+    ) {
+
+        log(
+            "This browser does not expose Web Bluetooth advertisement monitoring.",
+            "error"
+        );
+
+        $("advStatus").textContent =
+            "Advertisement monitoring is not supported by this browser.";
+
+        return;
+    }
+
+
+    if (advertisementScanning) {
+
+        log(
+            "Advertisement scanning is already running."
+        );
+
+        return;
+    }
+
+
+    try {
+
+        advertisementScanning =
+            true;
+
+
+        $("advertiseBtn").textContent =
+            "Advertisement Scan Running";
+
+        $("advertiseBtn").disabled =
+            true;
+
+
+        $("advStatus").textContent =
+            "Waiting for BLE advertisement packets...";
+
+
+        log(
+            "Starting GT2 advertisement monitoring...",
+            "good"
+        );
+
+
+        bluetoothDevice.addEventListener(
+            "advertisementreceived",
+            handleAdvertisement
+        );
+
+
+        await bluetoothDevice.watchAdvertisements();
+
+
+        log(
+            "Advertisement monitoring started.",
+            "good"
+        );
+
+
+    } catch(error) {
+
+        advertisementScanning =
+            false;
+
+
+        $("advertiseBtn").disabled =
+            false;
+
+
+        $("advertiseBtn").textContent =
+            "Start Advertisement Scan";
+
+
+        $("advStatus").textContent =
+            error.name +
+            ": " +
+            error.message;
+
+
+        log(
+            "Advertisement monitoring failed: " +
+            error.name +
+            ": " +
+            error.message,
+            "error"
+        );
+    }
+}
+
+
+/* ============================================================
+   ADVERTISEMENT EVENT
+   ============================================================ */
+
+function handleAdvertisement(event) {
+
+    log(
+        "Received BLE advertisement packet.",
+        "good"
+    );
+
+
+    $("advStatus").textContent =
+        "Advertisement packet received at " +
+        now();
+
+
+    $("advDescription").textContent =
+        "GT2 advertisement information captured.";
+
+
+    const results =
+        $("advResults");
+
+
+    results.innerHTML = "";
+
+
+    addAdvertisementBox(
+        results,
+        "Device Name",
+        event.device?.name ||
+        bluetoothDevice?.name ||
+        "(unknown)"
+    );
+
+
+    addAdvertisementBox(
+        results,
+        "Advertised Service UUIDs",
+        event.uuids &&
+        event.uuids.length
+            ? event.uuids.join("\n")
+            : "(none reported)"
+    );
+
+
+    if (
+        event.uuids &&
+        event.uuids.length
+    ) {
+
+        for (
+            const uuid of event.uuids
+        ) {
+
+            addUUID(uuid);
+
+            log(
+                "ADVERTISEMENT SERVICE UUID: " +
+                uuid,
+                "good"
+            );
+        }
+    }
+
+
+    if (
+        event.rssi !== undefined
+    ) {
+
+        addAdvertisementBox(
+            results,
+            "RSSI",
+            String(event.rssi) +
+            " dBm"
+        );
+    }
+
+
+    if (
+        event.txPower !== undefined
+    ) {
+
+        addAdvertisementBox(
+            results,
+            "TX Power",
+            String(event.txPower) +
+            " dBm"
+        );
+    }
+
+
+    if (
+        event.manufacturerData &&
+        event.manufacturerData.size
+    ) {
+
+        for (
+            const [
+                companyId,
+                data
+            ]
+            of event.manufacturerData
+        ) {
+
+            const hex =
+                bufferToHex(
+                    data.buffer
+                );
+
+            addAdvertisementBox(
+                results,
+                "Manufacturer Data 0x" +
+                Number(companyId)
+                    .toString(16)
+                    .padStart(4,"0"),
+                hex
             );
 
-        $("captureBtn").textContent =
-            captureEnabled
-                ? "Capture running"
-                : "Start capture";
 
-        log(
-            captureEnabled
-                ? "Notification capture enabled."
-                : "Notification capture disabled.",
-            captureEnabled
-                ? "good"
-                : "info"
+            log(
+                "MANUFACTURER DATA 0x" +
+                Number(companyId)
+                    .toString(16)
+                    .padStart(4,"0") +
+                ": " +
+                hex,
+                "good"
+            );
+        }
+    }
+
+
+    if (
+        event.serviceData &&
+        event.serviceData.size
+    ) {
+
+        for (
+            const [
+                uuid,
+                data
+            ]
+            of event.serviceData
+        ) {
+
+            const hex =
+                bufferToHex(
+                    data.buffer
+                );
+
+
+            addAdvertisementBox(
+                results,
+                "Service Data " + uuid,
+                hex
+            );
+
+
+            log(
+                "SERVICE DATA " +
+                uuid +
+                ": " +
+                hex,
+                "good"
+            );
+        }
+    }
+
+
+    /*
+        Some implementations expose additional
+        fields on the advertisement event.
+    */
+
+    if (
+        event.appearance !== undefined
+    ) {
+
+        addAdvertisementBox(
+            results,
+            "Appearance",
+            String(event.appearance)
         );
     }
-);
 
 
-$("clearLogsBtn").addEventListener(
-    "click",
-    () => {
+    if (
+        event.name !== undefined
+    ) {
 
-        $("logs").innerHTML = "";
-
-        log(
-            "Log cleared."
+        addAdvertisementBox(
+            results,
+            "Advertisement Name",
+            String(event.name)
         );
     }
-);
+
+
+    /*
+        Automatically try any discovered UUIDs.
+
+        The user can reconnect afterward so Chrome's
+        optionalServices list includes them.
+    */
+
+    if (
+        event.uuids &&
+        event.uuids.length
+    ) {
+
+        log(
+            "Discovered service UUID(s) have been added to the request list.",
+            "good"
+        );
+
+        log(
+            "Disconnect and reconnect once to request access to them.",
+            "warn"
+        );
+    }
+}
+
+
+function addAdvertisementBox(
+    parent,
+    label,
+    value
+) {
+
+    const box =
+        document.createElement("div");
+
+    box.className =
+        "advBox";
+
+
+    const title =
+        document.createElement("div");
+
+    title.className =
+        "advLabel";
+
+    title.textContent =
+        label;
+
+
+    const content =
+        document.createElement("div");
+
+    content.className =
+        "advValue";
+
+    content.textContent =
+        value;
+
+
+    box.appendChild(title);
+    box.appendChild(content);
+
+
+    parent.appendChild(box);
+}
 
 
 /* ============================================================
@@ -1271,15 +1672,18 @@ $("connectBtn").addEventListener(
 
 async function connect() {
 
-    if (!navigator.bluetooth) {
+    if (
+        !navigator.bluetooth
+    ) {
 
         log(
-            "Web Bluetooth is not available in this browser.",
+            "Web Bluetooth is unavailable in this browser.",
             "error"
         );
 
         return;
     }
+
 
     try {
 
@@ -1287,8 +1691,12 @@ async function connect() {
             "Opening Bluetooth device picker..."
         );
 
+
         const optionalServices =
-            Array.from(requestedUUIDs);
+            Array.from(
+                requestedUUIDs
+            );
+
 
         bluetoothDevice =
             await navigator.bluetooth.requestDevice({
@@ -1303,6 +1711,7 @@ async function connect() {
         $("deviceName").textContent =
             bluetoothDevice.name ||
             "(unnamed)";
+
 
         $("deviceId").textContent =
             bluetoothDevice.id ||
@@ -1323,6 +1732,24 @@ async function connect() {
             "gattserverdisconnected",
             handleDisconnect
         );
+
+
+        /*
+            Advertisement listener is attached here too,
+            so if the browser delivers an advertisement
+            immediately after connection we can capture it.
+        */
+
+        if (
+            "watchAdvertisements" in
+            bluetoothDevice
+        ) {
+
+            bluetoothDevice.addEventListener(
+                "advertisementreceived",
+                handleAdvertisement
+            );
+        }
 
 
         log(
@@ -1375,27 +1802,6 @@ async function connect() {
 
         $("gattState").textContent =
             "Failed";
-
-
-        if (
-            error.name === "NotFoundError"
-        ) {
-
-            log(
-                "No accessible GATT service was returned.",
-                "warn"
-            );
-
-            log(
-                "The GT2 may be using a proprietary service.",
-                "warn"
-            );
-
-            log(
-                "The next useful information is the GT2's proprietary service UUID.",
-                "warn"
-            );
-        }
     }
 }
 
@@ -1411,14 +1817,11 @@ async function inspectDevice() {
 
 
     log(
-        "Starting GT2 GATT inspection..."
+        "Beginning GT2 GATT inspection..."
     );
 
 
     $("serviceList").innerHTML = "";
-
-
-    discoveredServices = [];
 
 
     let services = [];
@@ -1432,7 +1835,8 @@ async function inspectDevice() {
 
 
         services =
-            await gattServer.getPrimaryServices();
+            await gattServer
+                .getPrimaryServices();
 
 
         log(
@@ -1473,7 +1877,9 @@ async function inspectDevice() {
 
                 const service =
                     await gattServer
-                        .getPrimaryService(uuid);
+                        .getPrimaryService(
+                            uuid
+                        );
 
 
                 if (
@@ -1489,13 +1895,13 @@ async function inspectDevice() {
 
 
                 log(
-                    "Found service: " +
+                    "FOUND SERVICE: " +
                     service.uuid,
                     "good"
                 );
 
 
-            } catch(serviceError) {
+            } catch(error2) {
 
                 log(
                     "Service unavailable: " +
@@ -1505,12 +1911,9 @@ async function inspectDevice() {
         }
 
 
-        services = found;
+        services =
+            found;
     }
-
-
-    discoveredServices =
-        services;
 
 
     $("serviceCount").textContent =
@@ -1520,24 +1923,18 @@ async function inspectDevice() {
     if (!services.length) {
 
         $("serviceDescription").textContent =
-            "No accessible GATT services were discovered.";
+            "The GT2 connected, but no accessible GATT services were returned.";
 
 
         showEmpty(
             "No accessible GATT services",
-            "The GT2 connected, but its proprietary service is not known yet."
+            "The advertisement scanner is now the important part."
         );
 
 
         log(
-            "No accessible services discovered.",
+            "No accessible GATT services.",
             "warn"
-        );
-
-
-        log(
-            "The Bluetooth connection itself is working.",
-            "good"
         );
 
 
@@ -1560,9 +1957,7 @@ async function inspectDevice() {
         const service of services
     ) {
 
-        await inspectService(
-            service
-        );
+        await inspectService(service);
     }
 
 
@@ -1574,7 +1969,7 @@ async function inspectDevice() {
 
 
 /* ============================================================
-   EMPTY STATE
+   EMPTY GATT STATE
    ============================================================ */
 
 function showEmpty(
@@ -1612,20 +2007,68 @@ function showEmpty(
 }
 
 
-function escapeHTML(value) {
-
-    return String(value)
-        .replaceAll("&","&amp;")
-        .replaceAll("<","&lt;")
-        .replaceAll(">","&gt;")
-        .replaceAll('"',"&quot;")
-        .replaceAll("'","&#039;");
-}
-
-
 /* ============================================================
    SERVICE
    ============================================================ */
+
+function uuidLabel(uuid) {
+
+    const known = {
+
+        "00001800-0000-1000-8000-00805f9b34fb":
+            "Generic Access",
+
+        "00001801-0000-1000-8000-00805f9b34fb":
+            "Generic Attribute",
+
+        "0000180a-0000-1000-8000-00805f9b34fb":
+            "Device Information",
+
+        "0000180d-0000-1000-8000-00805f9b34fb":
+            "Heart Rate",
+
+        "0000180f-0000-1000-8000-00805f9b34fb":
+            "Battery Service"
+    };
+
+
+    return known[
+        uuid.toLowerCase()
+    ] ||
+        "Proprietary / Unknown Service";
+}
+
+
+function propName(name) {
+
+    const map = {
+
+        broadcast:"broadcast",
+
+        read:"read",
+
+        writewithoutresponse:
+            "write-no-response",
+
+        write:"write",
+
+        notify:"notify",
+
+        indicate:"indicate",
+
+        authenticatedsignedwrites:
+            "signed-write",
+
+        extendedproperties:
+            "extended"
+    };
+
+
+    return map[
+        name.toLowerCase()
+    ] || name;
+}
+
 
 async function inspectService(service) {
 
@@ -1664,6 +2107,7 @@ async function inspectService(service) {
         <div class="badge blue">
             PRIMARY
         </div>
+
     `;
 
 
@@ -1687,7 +2131,8 @@ async function inspectService(service) {
     try {
 
         const characteristics =
-            await service.getCharacteristics();
+            await service
+                .getCharacteristics();
 
 
         log(
@@ -1705,7 +2150,7 @@ async function inspectService(service) {
             of characteristics
         ) {
 
-            await inspectCharacteristic(
+            inspectCharacteristic(
                 characteristic,
                 chars
             );
@@ -1726,10 +2171,10 @@ async function inspectService(service) {
 
 
 /* ============================================================
-   CHARACTERISTIC
+   CHARACTERISTICS
    ============================================================ */
 
-async function inspectCharacteristic(
+function inspectCharacteristic(
     characteristic,
     parent
 ) {
@@ -1745,72 +2190,68 @@ async function inspectCharacteristic(
         characteristic.properties || {};
 
 
-    const propertyNames = [];
+    const names = [];
 
 
     for (
         const key of Object.keys(properties)
     ) {
 
-        if (properties[key]) {
+        if (
+            properties[key]
+        ) {
 
-            propertyNames.push(key);
+            names.push(key);
         }
     }
 
 
     const propsHTML =
-        propertyNames
-            .map(name => {
+        names
+        .map(name => {
 
-                let cls = "";
+            let cls = "";
 
-                if (
-                    name === "notify" ||
-                    name === "indicate"
-                ) {
+            if (
+                name === "notify" ||
+                name === "indicate"
+            ) {
 
-                    cls = "notify";
-                }
+                cls = "notify";
+            }
 
-                if (
-                    name.includes("write")
-                ) {
+            if (
+                name.includes("write")
+            ) {
 
-                    cls = "write";
-                }
+                cls = "write";
+            }
 
 
-                return `
-                    <span class="prop ${cls}">
-                        ${escapeHTML(
-                            propName(name)
-                        )}
-                    </span>
-                `;
-            })
-            .join("");
+            return `
+                <span class="prop ${cls}">
+                    ${escapeHTML(
+                        propName(name)
+                    )}
+                </span>
+            `;
+        })
+        .join("");
 
 
     box.innerHTML = `
 
-        <div class="charTop">
-
-            <div class="charUuid">
-                ${escapeHTML(
-                    characteristic.uuid
-                )}
-            </div>
-
+        <div class="charUuid">
+            ${escapeHTML(
+                characteristic.uuid
+            )}
         </div>
 
         <div class="props">
-
             ${
                 propsHTML ||
                 '<span class="prop">no properties</span>'
             }
-
         </div>
 
         <div class="charButtons">
@@ -1917,7 +2358,8 @@ async function readCharacteristic(
 
 
         const value =
-            await characteristic.readValue();
+            await characteristic
+                .readValue();
 
 
         output.style.display =
@@ -1939,15 +2381,6 @@ async function readCharacteristic(
         );
 
 
-        if (value.byteLength) {
-
-            log(
-                "HEX " +
-                bytesToHex(value.buffer)
-            );
-        }
-
-
     } catch(error) {
 
         output.style.display =
@@ -1961,9 +2394,7 @@ async function readCharacteristic(
 
 
         log(
-            "Read failed for " +
-            characteristic.uuid +
-            ": " +
+            "Read failed: " +
             error.message,
             "error"
         );
@@ -2074,13 +2505,15 @@ async function toggleNotifications(
                     now();
 
 
-                if (captureEnabled) {
+                if (
+                    captureEnabled
+                ) {
 
                     log(
                         "NOTIFICATION " +
                         characteristic.uuid +
                         " → " +
-                        bytesToHex(
+                        bufferToHex(
                             value.buffer
                         ),
                         "good"
@@ -2122,9 +2555,7 @@ async function toggleNotifications(
     } catch(error) {
 
         log(
-            "Could not enable notifications for " +
-            characteristic.uuid +
-            ": " +
+            "Notification setup failed: " +
             error.message,
             "error"
         );
@@ -2175,11 +2606,6 @@ async function disconnect() {
             bluetoothDevice.gatt.connected
         ) {
 
-            log(
-                "Disconnecting from GT2..."
-            );
-
-
             bluetoothDevice.gatt.disconnect();
         }
 
@@ -2205,7 +2631,44 @@ async function disconnect() {
 
 
 /* ============================================================
-   INITIALISE
+   CAPTURE
+   ============================================================ */
+
+$("captureBtn").addEventListener(
+    "click",
+    () => {
+
+        captureEnabled =
+            !captureEnabled;
+
+
+        $("captureBtn")
+            .classList.toggle(
+                "active",
+                captureEnabled
+            );
+
+
+        $("captureBtn").textContent =
+            captureEnabled
+                ? "Capture running"
+                : "Start capture";
+
+
+        log(
+            captureEnabled
+                ? "Notification capture enabled."
+                : "Notification capture disabled.",
+            captureEnabled
+                ? "good"
+                : "info"
+        );
+    }
+);
+
+
+/* ============================================================
+   STARTUP
    ============================================================ */
 
 updateUUIDList();
@@ -2217,12 +2680,17 @@ log(
 
 
 log(
-    "Known software: AP0.1B2.2R1.2"
+    "Model: TRUEFREE Watch GT2"
 );
 
 
 log(
-    "Known BK version: 8.4"
+    "Software: AP0.1B2.2R1.2"
+);
+
+
+log(
+    "BK Version: 8.4"
 );
 
 
@@ -2232,12 +2700,7 @@ log(
 
 
 log(
-    "Standard GATT services will be requested."
-);
-
-
-log(
-    "Proprietary GT2 services can be added manually."
+    "Advertisement scanner available when supported."
 );
 
 
